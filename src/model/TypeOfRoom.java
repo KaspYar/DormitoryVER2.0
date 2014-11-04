@@ -1,13 +1,13 @@
 package model;
 
 public abstract class TypeOfRoom {
+	protected int capacity;
+	protected int price;
 public abstract int getCapacity();
 public abstract void setPrice(int prc);
 public abstract int getPrice();
 }
-class Single extends TypeOfRoom{
-	private int capacity;
-	private int price;
+class Single extends TypeOfRoom{	
 	public Single(){
 		capacity = 1;
 		price = 400;
@@ -24,8 +24,6 @@ class Single extends TypeOfRoom{
 }
 
 class Doubl extends TypeOfRoom{
-	private int capacity;
-	private int price;
 	public Doubl(){
 		capacity = 2;
 		price = 300;
@@ -42,8 +40,6 @@ class Doubl extends TypeOfRoom{
 }
 
 class Tripple extends TypeOfRoom{
-	private int capacity;
-	private int price;
 	public Tripple(){
 		capacity = 3;
 		price = 250;
@@ -60,8 +56,6 @@ class Tripple extends TypeOfRoom{
 }
 
 class Four extends TypeOfRoom{
-	private int capacity;
-	private int price;
 	public Four(){
 		capacity = 4;
 		price = 250;
