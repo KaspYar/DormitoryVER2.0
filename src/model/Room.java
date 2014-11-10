@@ -23,9 +23,6 @@ public int getFree() {
 	return free;
 }
 
-public void setFree(int free) {
-	this.free = free;
-}
 
 public LinkedList<Student> getInhabitans() {
 	return inhabitans;
