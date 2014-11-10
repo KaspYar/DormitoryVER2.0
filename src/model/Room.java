@@ -40,6 +40,7 @@ public TypeOfRoom getCapacity() {
 }
 
 public String getGenderType() {
+	setFree(10);
 	return genderType;
 }
 
