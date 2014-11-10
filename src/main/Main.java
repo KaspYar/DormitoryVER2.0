@@ -11,6 +11,7 @@ import view.MainContainer;
 public class Main {
 	private static Logger log = Logger.getLogger(Log4JLogRecord.class.getName());
 	public static void main(String [] args){
+		System.out.println("alal");
 		MainContainer mc = new MainContainer();
 		Controller contr = new Controller(mc);
 		database.DAO.INSTANCE.firstStep();
