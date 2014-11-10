@@ -13,7 +13,7 @@ public class MainContainer extends JFrame {
 		this.setResizable(false);
 		this.setLocation(Toolkit.getDefaultToolkit().getScreenSize().width/2 - this.getSize().width/2, 
 				Toolkit.getDefaultToolkit().getScreenSize().height/2 - this.getSize().height/2);
-		this.setTitle("Гуртожиток НаУКМА");
+		this.setTitle("Dormitory Manager 1.0");
 
 	}
 
