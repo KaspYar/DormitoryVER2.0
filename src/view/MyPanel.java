@@ -10,7 +10,7 @@ public class MyPanel extends JPanel {
 	private JButton exitButton;
 	private JLabel attentLbl;
 	
-	private String textToExitButton = "Вийти";
+	private String textToExitButton = "EXIT";
 
 	public JLabel getAttentLbl() {
 		return attentLbl;
