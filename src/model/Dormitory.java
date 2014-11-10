@@ -7,6 +7,8 @@ private String adress;
 private String phone;
 private LinkedList<Block> blocks;
 //private Comendant comendant;
+private Integer freePlaces;
+private Integer freeRooms;
 public Dormitory(String adr, String phone/*, Comendant cmd*/){
 	this.adress = adr;
 	this.phone = phone;
@@ -17,7 +19,7 @@ public Dormitory(String adr, String phone/*, Comendant cmd*/){
 public String getAdress() {
 	return adress;
 }
-public String getPhone(){
+public String getPhone() {
 	return phone;
 }
 /*

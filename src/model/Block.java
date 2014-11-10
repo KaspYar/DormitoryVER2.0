@@ -16,22 +16,4 @@ public void changeMaster(Student mstr){
 	this.master = mstr;
 	return;
 }
-public Student getMaster() {
-	return master;
-}
-public void setMaster(Student master) {
-	this.master = master;
-}
-public String getBlockId() {
-	return blockId;
-}
-public ArrayList<Room> getRooms() {
-	return rooms;
-}
-public Integer getFreeRooms() {
-	return freeRooms;
-}
-public Integer getFreeSpace() {
-	return freeSpace;
-}
 }
