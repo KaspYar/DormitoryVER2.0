@@ -19,5 +19,11 @@ public void addDormitory(){
 public void deleteDormitory(){
 	//
 }
-// 
+public  void getFreeDormitory(Dormitory d){
+	//
+	
+}
+public void getTotalFreeDormitory(){
+	//
+}
 }
