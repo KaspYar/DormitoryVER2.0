@@ -17,7 +17,7 @@ public Dormitory(String adr, String phone/*, Comendant cmd*/){
 public String getAdress() {
 	return adress;
 }
-public String getPhone() {
+public String getPhone(){
 	return phone;
 }
 /*
