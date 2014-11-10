@@ -20,21 +20,25 @@ import javax.swing.JToolBar;
 import javax.swing.JSpinner;
 import javax.swing.JList;
 import javax.swing.JScrollBar;
+import javax.swing.JComboBox;
 
 public class LogIn extends MyPanel {
-	private JButton btnLogIn;
-	private JTextField textFieldLogin;
-	private JPasswordField textFieldPswd;
-	private JLabel lblGreeting;
-	private JLabel lblInfoTool;
-	private JButton btnSpravka;
-	
 	String txtBtnLogIn = "Log In";
 	String txtLblYourLogin = "Your login:";
 	String txtLblYourPswd = "Your password :";
 	String txtLblGreetings = "Sing up to work";
 	String txtBtnSpravka = "Tip";
 	String txtLblInfoTool = "If you are a student enter your surname and password 11111";
+	String [] lstBoxUser = {"Administrator","Comendant","Student","Worker", "Guest"};
+	
+	
+	private JButton btnLogIn;
+	private JTextField textFieldLogin;
+	private JPasswordField textFieldPswd;
+	private JLabel lblGreeting;
+	private JLabel lblInfoTool;
+	private JButton btnSpravka;
+	private JComboBox boxUser;
 	
 
 	public JButton getLogInBtn() {
@@ -68,7 +72,7 @@ public class LogIn extends MyPanel {
 		lblGreeting.setForeground(Color.WHITE);
 		lblGreeting.setHorizontalAlignment(SwingConstants.CENTER);
 		lblGreeting.setFont(new Font("Tahoma", Font.PLAIN, 26));
-		lblGreeting.setBounds(152, 74, 509, 150);
+		lblGreeting.setBounds(204, 99, 387, 96);
 		add(lblGreeting);
 		
 		lblInfoTool = new JLabel(txtLblInfoTool);
@@ -80,6 +84,10 @@ public class LogIn extends MyPanel {
 		btnSpravka = new JButton(txtBtnSpravka);
 		btnSpravka.setBounds(701, 11, 89, 23);
 		add(btnSpravka);
+		
+		boxUser = new JComboBox(lstBoxUser);
+		boxUser.setBounds(302, 206, 189, 23);
+		add(boxUser);
 	}
 
 	public JButton getBtnLogIn() {
