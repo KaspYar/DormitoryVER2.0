@@ -23,6 +23,7 @@ import javax.swing.JScrollBar;
 import javax.swing.JComboBox;
 
 public class LogIn extends MyPanel {
+	
 	String txtBtnLogIn = "Log In";
 	String txtLblYourLogin = "Your login:";
 	String txtLblYourPswd = "Your password :";
