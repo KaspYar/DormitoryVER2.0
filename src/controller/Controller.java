@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 
 import org.apache.log4j.lf5.Log4JLogRecord;
 
+import view.Administrator;
 import view.LogIn;
 import view.MainContainer;
 
@@ -15,6 +16,7 @@ public class Controller {
 
 	private MainContainer frame;
 	private LogIn login;
+	private Administrator admin;
 	Logger log = Logger.getLogger(Log4JLogRecord.class.getName());
 
 	public Controller(MainContainer mc) {
@@ -51,13 +53,13 @@ public class Controller {
 					if (login.getBoxUser().getSelectedItem().equals("Administrator")){
 						System.out.println("admin");
 						/*check login and pswd for this user if */
-						if (model.Model.INSTANCE.checkLogInPswd4Administrator(login.getTextFieldLogin().getText(), login.getTextFieldPswd().getPassword())){
-							//admin = new Administrator();
-							//admin.addListener(new AdministratorListener());
+						if (!model.Model.INSTANCE.checkLogInPswd4Administrator(login.getTextFieldLogin().getText(), login.getTextFieldPswd().getPassword())){
+							admin = new Administrator();
+							admin.addListener(new ListenerAdministrator());
 							login.getTextFieldLogin().setText("");
 							login.getTextFieldPswd().setText("");
 							login.getAttentLbl().setText("");
-							//frame.showPane(admin);
+							frame.showPane(admin);
 						}else{
 							JOptionPane.showMessageDialog(login,
 					                "You entered wrong value(s)!",
@@ -80,5 +82,14 @@ public class Controller {
 			}
 		}
 
+	}
+	private class ListenerAdministrator implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+		
 	}
 }
