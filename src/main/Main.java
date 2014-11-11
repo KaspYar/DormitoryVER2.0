@@ -13,6 +13,6 @@ public class Main {
 	public static void main(String [] args){
 		//MainContainer mc = new MainContainer();
 		//Controller contr = new Controller(mc);
-		database.DAO.INSTANCE.firstStep();
+		//database.DAO.INSTANCE.firstStep();
 	}
 }
