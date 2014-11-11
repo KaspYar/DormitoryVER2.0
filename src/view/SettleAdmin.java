@@ -53,11 +53,6 @@ public class SettleAdmin extends MyPanel{
 		lblSettle.setBounds(363, 26, 200, 50);
 		add(lblSettle);
 		
-		tableStudent = new JTable();
-		tableStudent.setBorder(new LineBorder(new Color(0, 0, 153), 3));
-		tableStudent.setToolTipText("");
-		tableStudent.setBounds(62, 154, 501, 224);
-		add(tableStudent);
 		
 		JButton btnSettlecreateLiving = new JButton("Settle/Create living");
 		btnSettlecreateLiving.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -69,6 +64,12 @@ public class SettleAdmin extends MyPanel{
 		btnBack.setBounds(666, 439, 89, 23);
 		add(btnBack);
 		
+		tableStudent = new JTable();
+		tableStudent.setBorder(new LineBorder(new Color(0, 0, 153), 3));
+		tableStudent.setBounds(62, 184, 412, 148);
+		add(tableStudent);
+		
+	
 		
 		
 	
