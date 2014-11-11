@@ -25,27 +25,34 @@ import javax.swing.JTabbedPane;
 import javax.swing.JDesktopPane;
 import javax.swing.JCheckBox;
 import javax.swing.JMenuBar;
+
 import java.awt.Choice;
+
 import javax.swing.JTable;
+
 import java.awt.List;
+
 import javax.swing.JEditorPane;
 import javax.swing.JComboBox;
 import javax.swing.border.LineBorder;
 
 public class SettleAdmin extends MyPanel{
+	
+	String txtLblSettle = "Settle";
+	String txtBtnSettlecreateLiving = "Settle/Create Living";
+	String txtBtnBack = "Back";
+	String txtLblSelect = "Select";
+    	
+	
 	private JTable table;
 	private JTable tableStudent;
 	private AbstractButton btnSettlecreateLiving;
 	private AbstractButton btnBack;
+	
 	public SettleAdmin() {
 		
-		JLabel lblSelectStudent = new JLabel("Select student");
-		lblSelectStudent.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblSelectStudent.setBounds(62, 103, 100, 40);
-		add(lblSelectStudent);
-		
 		Choice boxStudent = new Choice();
-		boxStudent.setBounds(191, 115, 200, 50);
+		boxStudent.setBounds(140, 120, 200, 50);
 		add(boxStudent);
 		
 		JLabel lblSettle = new JLabel("Settle");
@@ -68,6 +75,11 @@ public class SettleAdmin extends MyPanel{
 		tableStudent.setBorder(new LineBorder(new Color(0, 0, 153), 3));
 		tableStudent.setBounds(62, 184, 412, 148);
 		add(tableStudent);
+		
+		JLabel lblSelect = new JLabel("Select");
+		lblSelect.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblSelect.setBounds(62, 108, 72, 40);
+		add(lblSelect);
 		
 	
 		

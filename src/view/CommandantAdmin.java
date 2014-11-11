@@ -28,10 +28,22 @@ import javax.swing.JCheckBox;
 import javax.swing.JMenuBar;
 
 public class CommandantAdmin extends MyPanel {
+	String txtLblCommandant = "Commandant";
+	String txtBtnSettle = "Settle";
+	String txtBtnResettle = "Resettle";
+	String txtBtnEvict = "Evict";
+	String txtBtnInformation = "Information";
+	String txtBtnBack = "Back";
+	
+	
 	private AbstractButton btnSettle;
 	private AbstractButton btnResettle;
 	private AbstractButton btnEvict;
 	private AbstractButton btnInformation;
+	private JLabel lblCommandant;
+	private AbstractButton btnBack;
+	
+	
 	public CommandantAdmin() {
 		
 		JLabel lblCommandant = new JLabel("Commandant");
@@ -59,6 +71,11 @@ public class CommandantAdmin extends MyPanel {
 		btnInformation.setBounds(343, 389, 145, 23);
 		add(btnInformation);
 		
+		JButton btnBack = new JButton("Back");
+		btnBack.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnBack.setBounds(668, 452, 89, 23);
+		add(btnBack);
+		
 	
 	}
 	public void addListener(ActionListener l) {
@@ -66,6 +83,7 @@ public class CommandantAdmin extends MyPanel {
 		btnResettle.addActionListener(l);
 		btnEvict.addActionListener(l);
 		btnInformation.addActionListener(l);
+		btnBack.addActionListener(l);
 
 	}
 }
