@@ -40,6 +40,8 @@ public class LogIn extends MyPanel {
 	private JLabel lblInfoTool;
 	private JButton btnSpravka;
 	private JComboBox boxUser;
+	private JLabel lblYourLogin;
+	private JLabel lblYourPassword;
 	
 
 	public JButton getLogInBtn() {
@@ -61,11 +63,11 @@ public class LogIn extends MyPanel {
 		textFieldPswd.setBounds(350, 285, 100, 20);
 		add(textFieldPswd);
 		
-		JLabel lblYourLogin = new JLabel(txtLblYourLogin);
+		lblYourLogin = new JLabel(txtLblYourLogin);
 		lblYourLogin.setBounds(244, 250, 100, 20);
 		add(lblYourLogin);
 		
-		JLabel lblYourPassword = new JLabel(txtLblYourPswd);
+		lblYourPassword = new JLabel(txtLblYourPswd);
 		lblYourPassword.setBounds(244, 285, 100, 20);
 		add(lblYourPassword);
 		
@@ -106,10 +108,15 @@ public class LogIn extends MyPanel {
 	public JButton getBtnSpravka() {
 		return btnSpravka;
 	}
+	
+	public JComboBox getBoxUser() {
+		return boxUser;
+	}
 
 	public void addListener(ActionListener l) {
 		btnLogIn.addActionListener(l);
 		btnSpravka.addActionListener(l);
+		boxUser.addActionListener(l);
 
 	}
 }
