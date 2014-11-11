@@ -33,6 +33,9 @@ public class Controller {
 			if (source == login.getBtnLogIn()){
 				System.out.println("ListenerLogIn: pressed LogIn");					
 			}
+			if (source == login.getBoxUser()){
+				System.out.println("Box user value = "+login.getBoxUser().getSelectedItem());
+			}
 		}
 
 	}
