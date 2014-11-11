@@ -10,5 +10,8 @@ public enum Model {
 	private Model(){
 		log.info("Model Instance Has Been Creared Successfully");
 	}
+	public boolean checkLogInPswd4Administrator(String logIn, char [] pswd){
+		return true;
+	}
 
 }

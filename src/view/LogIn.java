@@ -109,6 +109,10 @@ public class LogIn extends MyPanel {
 		return btnSpravka;
 	}
 	
+	public JTextField getTextFieldLogin() {
+		return textFieldLogin;
+	}
+
 	public JComboBox getBoxUser() {
 		return boxUser;
 	}
