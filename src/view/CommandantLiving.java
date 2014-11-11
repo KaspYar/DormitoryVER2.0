@@ -28,14 +28,14 @@ import javax.swing.JCheckBox;
 import javax.swing.JMenuBar;
 import javax.swing.border.LineBorder;
 
-public class LivingAdmin extends MyPanel{
+public class CommandantLiving extends MyPanel{
 	private JTextField textFieldDateFrom;
 	private JTextField textFieldDateTo;
 	private JTextField textFieldPrice;
 	private JTextField textFieldRoom;
 
 	
-	public LivingAdmin() {
+	public CommandantLiving() {
 		
 		JLabel lblLiving = new JLabel("Living");
 		lblLiving.setFont(new Font("Tahoma", Font.PLAIN, 34));

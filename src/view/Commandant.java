@@ -27,7 +27,7 @@ import javax.swing.JDesktopPane;
 import javax.swing.JCheckBox;
 import javax.swing.JMenuBar;
 
-public class CommandantAdmin extends MyPanel {
+public class Commandant extends MyPanel {
 	String txtLblCommandant = "Commandant";
 	String txtBtnSettle = "Settle";
 	String txtBtnResettle = "Resettle";
@@ -44,7 +44,7 @@ public class CommandantAdmin extends MyPanel {
 	private AbstractButton btnBack;
 	
 	
-	public CommandantAdmin() {
+	public Commandant() {
 		
 		JLabel lblCommandant = new JLabel("Commandant");
 		lblCommandant.setFont(new Font("Tahoma", Font.PLAIN, 34));

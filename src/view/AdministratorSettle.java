@@ -36,7 +36,7 @@ import javax.swing.JEditorPane;
 import javax.swing.JComboBox;
 import javax.swing.border.LineBorder;
 
-public class SettleAdmin extends MyPanel{
+public class AdministratorSettle extends MyPanel{
 	
 	String txtLblSettle = "Settle";
 	String txtBtnSettlecreateLiving = "Settle/Create Living";
@@ -49,7 +49,7 @@ public class SettleAdmin extends MyPanel{
 	private AbstractButton btnSettlecreateLiving;
 	private AbstractButton btnBack;
 	
-	public SettleAdmin() {
+	public AdministratorSettle() {
 		
 		Choice boxStudent = new Choice();
 		boxStudent.setBounds(140, 120, 200, 50);
