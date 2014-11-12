@@ -28,13 +28,32 @@ import javax.swing.JCheckBox;
 import javax.swing.JMenuBar;
 import javax.swing.border.LineBorder;
 
-public class LivingAdmin extends MyPanel{
+public class LivingAdmin extends MyPanelWithLogOut{
+	
+	String txtlblLiving = "Living";
+	String txtbtnBack = "Back";
+	String txtchckbxStudent = "Student";
+	String txtchckbxWorker = "Worker";
+	String txtchckbxGuest = "Guest";
+	String txtlblDateFrom = "Date from";
+	String txtlblDateTo = "Date to";
+	String txtlblPrice = "Price";
+	String txtlblRoom = "Room";
+	
+	
 	private JTextField textFieldDateFrom;
 	private JTextField textFieldDateTo;
-	private JTextField textFieldPrice;
-	private JTextField textFieldRoom;
-
-	
+	private AbstractButton btnBack;
+	private JLabel lblLiving;
+	private JPanel panelLiving;
+    private JCheckBox chckbxStudent;
+    private JCheckBox chckbxWorker;
+    private JCheckBox chckbxGuest;
+    private JLabel lblDateFrom;
+    private JLabel lblDateTo;
+    private JLabel lblPrice;
+    private JLabel lblRoom;
+    
 	public LivingAdmin() {
 		
 		JLabel lblLiving = new JLabel("Living");
@@ -51,21 +70,6 @@ public class LivingAdmin extends MyPanel{
 		panelLiving.setBorder(new LineBorder(new Color(0, 0, 153), 3));
 		panelLiving.setBounds(380, 94, 377, 299);
 		add(panelLiving);
-		
-		JCheckBox chckbxStudent = new JCheckBox("Student");
-		chckbxStudent.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		chckbxStudent.setBounds(48, 94, 97, 23);
-		add(chckbxStudent);
-		
-		JCheckBox chckbxWorker = new JCheckBox("Worker");
-		chckbxWorker.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		chckbxWorker.setBounds(48, 136, 97, 23);
-		add(chckbxWorker);
-		
-		JCheckBox chckbxGuest = new JCheckBox("Guest");
-		chckbxGuest.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		chckbxGuest.setBounds(48, 178, 97, 23);
-		add(chckbxGuest);
 		
 		JLabel lblDateFrom = new JLabel("Date from");
 		lblDateFrom.setFont(new Font("Tahoma", Font.PLAIN, 15));
@@ -92,27 +96,20 @@ public class LivingAdmin extends MyPanel{
 		lblPrice.setBounds(48, 342, 46, 14);
 		add(lblPrice);
 		
-		textFieldPrice = new JTextField();
-		textFieldPrice.setBounds(145, 341, 86, 20);
-		add(textFieldPrice);
-		textFieldPrice.setColumns(10);
-		
 		JLabel lblRoom = new JLabel("Room");
 		lblRoom.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblRoom.setBounds(48, 384, 46, 14);
 		add(lblRoom);
 		
-		textFieldRoom = new JTextField();
-		textFieldRoom.setBounds(145, 378, 86, 20);
-		add(textFieldRoom);
-		textFieldRoom.setColumns(10);
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setBounds(145, 344, 46, 14);
+		add(lblNewLabel);
 		
+	}
+	
+	public void addListener(ActionListener l) {
+	
+		btnBack.addActionListener(l);
 
-		
-	
-		
-		
-		
-	
 	}
 }

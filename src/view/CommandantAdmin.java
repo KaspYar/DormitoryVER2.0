@@ -4,86 +4,53 @@ package view;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 
-import javax.swing.JPanel;
 import javax.swing.JButton;
 
-import java.awt.event.ActionEvent;
-
-import javax.swing.JTextField;
-import javax.swing.JPasswordField;
 import javax.swing.JLabel;
 
 import java.awt.Font;
-
-import javax.swing.AbstractButton;
-import javax.swing.DefaultListModel;
-import javax.swing.SwingConstants;
-import javax.swing.JToolBar;
-import javax.swing.JSpinner;
-import javax.swing.JList;
-import javax.swing.JScrollBar;
+import javax.swing.JLayeredPane;
 import javax.swing.JTabbedPane;
+import javax.swing.JToolBar;
+import javax.swing.JSplitPane;
 import javax.swing.JDesktopPane;
-import javax.swing.JCheckBox;
-import javax.swing.JMenuBar;
+import javax.swing.JPanel;
 
-public class CommandantAdmin extends MyPanel {
+public class CommandantAdmin extends MyPanelWithLogOut {
 	String txtLblCommandant = "Commandant";
-	String txtBtnSettle = "Settle";
-	String txtBtnResettle = "Resettle";
-	String txtBtnEvict = "Evict";
-	String txtBtnInformation = "Information";
-	String txtBtnBack = "Back";
 	
 	
-	private AbstractButton btnSettle;
-	private AbstractButton btnResettle;
-	private AbstractButton btnEvict;
-	private AbstractButton btnInformation;
+	
 	private JLabel lblCommandant;
-	private AbstractButton btnBack;
-	
+
 	
 	public CommandantAdmin() {
 		
-		JLabel lblCommandant = new JLabel("Commandant");
+	    lblCommandant = new JLabel("txtLblCommandant");
+		lblCommandant.setForeground(Color.WHITE);
+		lblCommandant.setBackground(Color.WHITE);
 		lblCommandant.setFont(new Font("Tahoma", Font.PLAIN, 34));
-		lblCommandant.setBounds(315, 29, 200, 50);
+		lblCommandant.setBounds(444, 0, 200, 50);
 		add(lblCommandant);
 		
-		JButton btnSettle = new JButton("Settle");
-		btnSettle.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnSettle.setBounds(343, 130, 145, 23);
-		add(btnSettle);
+		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		tabbedPane.setBounds(25, 80, 765, 361);
+		add(tabbedPane);
 		
-		JButton btnResettle = new JButton("Resettle");
-		btnResettle.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnResettle.setBounds(343, 205, 145, 23);
-		add(btnResettle);
+		JToolBar toolBar = new JToolBar();
+		tabbedPane.addTab("New tab", null, toolBar, null);
 		
-		JButton btnEvict = new JButton("Evict");
-		btnEvict.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnEvict.setBounds(343, 293, 145, 23);
-		add(btnEvict);
+		JPanel panel = new JPanel();
+		toolBar.add(panel);
 		
-		JButton btnInformation = new JButton("Information");
-		btnInformation.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnInformation.setBounds(343, 389, 145, 23);
-		add(btnInformation);
+		JToolBar toolBar_1 = new JToolBar();
+		tabbedPane.addTab("New tab", null, toolBar_1, null);
 		
-		JButton btnBack = new JButton("Back");
-		btnBack.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnBack.setBounds(668, 452, 89, 23);
-		add(btnBack);
+		JPanel panel_1 = new JPanel();
+		toolBar_1.add(panel_1);
+		
 		
 	
 	}
-	public void addListener(ActionListener l) {
-		btnSettle.addActionListener(l);
-		btnResettle.addActionListener(l);
-		btnEvict.addActionListener(l);
-		btnInformation.addActionListener(l);
-		btnBack.addActionListener(l);
-
-	}
+	
 }

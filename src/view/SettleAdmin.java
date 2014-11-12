@@ -44,10 +44,13 @@ public class SettleAdmin extends MyPanel{
 	String txtLblSelect = "Select";
     	
 	
-	private JTable table;
+
 	private JTable tableStudent;
 	private AbstractButton btnSettlecreateLiving;
 	private AbstractButton btnBack;
+	private Choice boxStudent;
+	private JLabel lblSettle;
+	private JLabel lblSelect;
 	
 	public SettleAdmin() {
 		

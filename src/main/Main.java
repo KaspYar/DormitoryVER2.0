@@ -11,9 +11,13 @@ import view.MainContainer;
 public class Main {
 	private static Logger log = Logger.getLogger(Log4JLogRecord.class.getName());
 	public static void main(String [] args){
-
+//<<<<<<< HEAD
 		MainContainer mc = new MainContainer();
 		Controller contr = new Controller(mc);
+
+		//MainContainer mc = new MainContainer();
+		//Controller contr = new Controller(mc);
+//>>>>>>> 2bb78ae8af75abd8a56b4d46f2c42a7284979ead
 		//database.DAO.INSTANCE.firstStep();
 	}
 }
