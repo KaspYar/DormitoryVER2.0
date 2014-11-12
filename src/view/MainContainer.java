@@ -14,6 +14,7 @@ public class MainContainer extends JFrame {
 		this.setLocation(Toolkit.getDefaultToolkit().getScreenSize().width/2 - this.getSize().width/2, 
 				Toolkit.getDefaultToolkit().getScreenSize().height/2 - this.getSize().height/2);
 		this.setTitle("Dormitory Manager 1.0");
+		//without frame this.setUndecorated(true);
 
 	}
 

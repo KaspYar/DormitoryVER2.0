@@ -36,42 +36,42 @@ public class Commandant extends MyPanel {
 	String txtBtnBack = "Back";
 	
 	
-	private AbstractButton btnSettle;
-	private AbstractButton btnResettle;
-	private AbstractButton btnEvict;
-	private AbstractButton btnInformation;
+	private JButton btnSettle;
+	private JButton btnResettle;
+	private JButton btnEvict;
+	private JButton btnInformation;
 	private JLabel lblCommandant;
-	private AbstractButton btnBack;
+	private JButton btnBack;
 	
 	
 	public Commandant() {
 		
-		JLabel lblCommandant = new JLabel("Commandant");
+		lblCommandant = new JLabel(txtLblCommandant);
 		lblCommandant.setFont(new Font("Tahoma", Font.PLAIN, 34));
 		lblCommandant.setBounds(315, 29, 200, 50);
 		add(lblCommandant);
 		
-		JButton btnSettle = new JButton("Settle");
+		btnSettle = new JButton(txtBtnSettle);
 		btnSettle.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnSettle.setBounds(343, 130, 145, 23);
 		add(btnSettle);
 		
-		JButton btnResettle = new JButton("Resettle");
+		btnResettle = new JButton(txtBtnResettle);
 		btnResettle.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnResettle.setBounds(343, 205, 145, 23);
 		add(btnResettle);
 		
-		JButton btnEvict = new JButton("Evict");
+		btnEvict = new JButton(txtBtnEvict);
 		btnEvict.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnEvict.setBounds(343, 293, 145, 23);
 		add(btnEvict);
 		
-		JButton btnInformation = new JButton("Information");
+		btnInformation = new JButton(txtBtnInformation);
 		btnInformation.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnInformation.setBounds(343, 389, 145, 23);
 		add(btnInformation);
 		
-		JButton btnBack = new JButton("Back");
+		btnBack = new JButton(txtBtnBack);
 		btnBack.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		btnBack.setBounds(668, 452, 89, 23);
 		add(btnBack);

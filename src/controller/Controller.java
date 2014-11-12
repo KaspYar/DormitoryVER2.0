@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 import org.apache.log4j.lf5.Log4JLogRecord;
 
 import view.Administrator;
+import view.Commandant;
 import view.LogIn;
 import view.MainContainer;
 
@@ -17,6 +18,7 @@ public class Controller {
 	private MainContainer frame;
 	private LogIn login;
 	private Administrator admin;
+	private Commandant commmand;
 	Logger log = Logger.getLogger(Log4JLogRecord.class.getName());
 
 	public Controller(MainContainer mc) {
@@ -50,10 +52,12 @@ public class Controller {
 			                "Warning!!!",
 			                JOptionPane.WARNING_MESSAGE);				
 				}else{
+					boolean wrongInput = false;
 					if (login.getBoxUser().getSelectedItem().equals("Administrator")){
 						System.out.println("admin");
 						/*check login and pswd for this user if */
-						if (!model.Model.INSTANCE.checkLogInPswd4Administrator(login.getTextFieldLogin().getText(), login.getTextFieldPswd().getPassword())){
+						if (model.Model.INSTANCE.checkUserLogInPswd((String)login.getBoxUser().getSelectedItem(),
+								login.getTextFieldLogin().getText(), login.getTextFieldPswd().getPassword())){
 							admin = new Administrator();
 							admin.addListener(new ListenerAdministrator());
 							login.getTextFieldLogin().setText("");
@@ -61,19 +65,33 @@ public class Controller {
 							login.getAttentLbl().setText("");
 							frame.showPane(admin);
 						}else{
-							JOptionPane.showMessageDialog(login,
-					                "You entered wrong value(s)!",
-					                "ERROR",
-					                JOptionPane.ERROR_MESSAGE);
+							wrongInput = true;							
 						}
 					}else if (login.getBoxUser().getSelectedItem().equals("Comendant")){
 						System.out.println("comend");
+						if (model.Model.INSTANCE.checkUserLogInPswd((String)login.getBoxUser().getSelectedItem(),
+								login.getTextFieldLogin().getText(), login.getTextFieldPswd().getPassword())){
+							commmand = new Commandant();
+							commmand.addListener(new ListenerCommandant());
+							login.getTextFieldLogin().setText("");
+							login.getTextFieldPswd().setText("");
+							login.getAttentLbl().setText("");
+							frame.showPane(commmand);
+						}else{
+							wrongInput = true;							
+						}
 					} else if (login.getBoxUser().getSelectedItem().equals("Student")){
 						System.out.println("student");
 					}else if (login.getBoxUser().getSelectedItem().equals("Worker")){
 						System.out.println("worker");
 					} else{
 						System.out.println("guest");
+					}
+					if (wrongInput){
+						JOptionPane.showMessageDialog(login,
+				                "You entered wrong value(s)!",
+				                "ERROR",
+				                JOptionPane.ERROR_MESSAGE);
 					}
 				}
 			}
@@ -84,6 +102,15 @@ public class Controller {
 
 	}
 	private class ListenerAdministrator implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+	}
+	private class ListenerCommandant implements ActionListener{
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
