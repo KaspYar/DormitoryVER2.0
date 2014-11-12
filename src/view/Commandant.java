@@ -2,28 +2,35 @@ package view;
 
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-
 import javax.swing.JLabel;
 
 import java.awt.Font;
+
 import javax.swing.JLayeredPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JToolBar;
 import javax.swing.JSplitPane;
 import javax.swing.JDesktopPane;
 import javax.swing.JPanel;
+import javax.swing.JTextPane;
+import javax.swing.JTable;
+import javax.swing.JComboBox;
 
 public class Commandant extends MyPanelWithLogOut {
-	String txtLblCommandant = "Commandant";
-	private JButton btnSettle;
-	private JButton btnResettle;
-	private JButton btnEvict;
-	private JButton btnInformation;
+	private String txtLblCommandant = "Commandant";
+	private String txttoolBar = "Settle";
+	
+	
 	private JLabel lblCommandant;
-	private JButton btnBack;
+	private JTabbedPane tabbedPane;
+	private JToolBar toolBar;
+	private JPanel panelSettle;
+	private JTable table;
+
 
 	
 	public Commandant() {
@@ -31,8 +38,8 @@ public class Commandant extends MyPanelWithLogOut {
 	    lblCommandant = new JLabel(txtLblCommandant);
 		lblCommandant.setForeground(Color.WHITE);
 		lblCommandant.setBackground(Color.WHITE);
-		lblCommandant.setFont(new Font("Tahoma", Font.PLAIN, 34));
-		lblCommandant.setBounds(444, 0, 200, 50);
+		lblCommandant.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblCommandant.setBounds(325, 0, 255, 50);
 		add(lblCommandant);
 		
 
@@ -40,22 +47,36 @@ public class Commandant extends MyPanelWithLogOut {
 		tabbedPane.setBounds(25, 80, 765, 361);
 		add(tabbedPane);
 		
-		JToolBar toolBar = new JToolBar();
-		tabbedPane.addTab("New tab", null, toolBar, null);
+		JPanel panelSettle = new JPanel();
+		panelSettle.setBackground(Color.GREEN);
+		tabbedPane.addTab("Settle", null, panelSettle, null);
+		panelSettle.setLayout(null);
+		panelSettle.setBackground(new Color( 102,178,255));
 		
-		JPanel panel = new JPanel();
-		toolBar.add(panel);
+		JLabel lblSelect = new JLabel("Select");
+		lblSelect.setBounds(35, 51, 46, 14);
+		panelSettle.add(lblSelect);
 		
-		JToolBar toolBar_1 = new JToolBar();
-		tabbedPane.addTab("New tab", null, toolBar_1, null);
+		table = new JTable();
+		table.setBounds(35, 111, 443, 175);
+		panelSettle.add(table);
 		
-		JPanel panel_1 = new JPanel();
-		toolBar_1.add(panel_1);
+		JComboBox comboBox = new JComboBox();
+		comboBox.setBounds(109, 36, 200, 50);
+		panelSettle.add(comboBox);
 		
-
+		JButton btnSettle = new JButton("Settle");
+		btnSettle.setBounds(515, 47, 89, 23);
+		panelSettle.add(btnSettle);
+		
+		JPanel panelResettle = new JPanel();
+		tabbedPane.addTab("Resettle", null, panelResettle, null);
+		panelResettle.setLayout(null);
+		panelResettle.setBackground(new Color( 102,178,255));
+		
+		
 		
 		
 	
 	}
-	
 }
