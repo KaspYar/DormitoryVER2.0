@@ -29,7 +29,7 @@ public class LogIn extends MyPanel {
 	String txtLblYourPswd = "Your password :";
 	String txtLblGreetings = "Sing up to work";
 	String txtBtnSpravka = "Tip";
-	String txtLblInfoTool = "If you are a student enter your surname and password 11111";
+	String txtLblInfoTool = "If you are a student, guest or worker enter your surname and password 11111";
 	String [] lstBoxUser = {"Administrator","Comendant","Student","Worker", "Guest"};
 	
 	
@@ -39,7 +39,7 @@ public class LogIn extends MyPanel {
 	private JLabel lblGreeting;
 	private JLabel lblInfoTool;
 	private JButton btnSpravka;
-	private JComboBox boxUser;
+	private JComboBox<String> boxUser;
 	private JLabel lblYourLogin;
 	private JLabel lblYourPassword;
 	
@@ -88,7 +88,7 @@ public class LogIn extends MyPanel {
 		btnSpravka.setBounds(701, 11, 89, 23);
 		add(btnSpravka);
 		
-		boxUser = new JComboBox(lstBoxUser);
+		boxUser = new JComboBox<String>(lstBoxUser);
 		boxUser.setBounds(302, 206, 189, 23);
 		add(boxUser);
 	}
@@ -109,7 +109,11 @@ public class LogIn extends MyPanel {
 		return btnSpravka;
 	}
 	
-	public JComboBox getBoxUser() {
+	public JTextField getTextFieldLogin() {
+		return textFieldLogin;
+	}
+
+	public JComboBox<String> getBoxUser() {
 		return boxUser;
 	}
 

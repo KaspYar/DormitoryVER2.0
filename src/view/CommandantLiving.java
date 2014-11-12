@@ -28,6 +28,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JMenuBar;
 import javax.swing.border.LineBorder;
 
+<<<<<<< HEAD:src/view/LivingAdmin.java
 public class LivingAdmin extends MyPanelWithLogOut{
 	
 	String txtlblLiving = "Living";
@@ -55,6 +56,16 @@ public class LivingAdmin extends MyPanelWithLogOut{
     private JLabel lblRoom;
     
 	public LivingAdmin() {
+=======
+public class CommandantLiving extends MyPanel{
+	private JTextField textFieldDateFrom;
+	private JTextField textFieldDateTo;
+	private JTextField textFieldPrice;
+	private JTextField textFieldRoom;
+
+	
+	public CommandantLiving() {
+>>>>>>> 1ab9aa4525d4a0da97cff4c54fa631993f721813:src/view/CommandantLiving.java
 		
 		JLabel lblLiving = new JLabel("Living");
 		lblLiving.setFont(new Font("Tahoma", Font.PLAIN, 34));
