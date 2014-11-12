@@ -12,13 +12,16 @@ import view.Administrator;
 import view.Commandant;
 import view.LogIn;
 import view.MainContainer;
+import view.MyPanelWithLogOut;
+import view.Student;
 
 public class Controller {
 
 	private MainContainer frame;
 	private LogIn login;
 	private Administrator admin;
-	private Commandant commmand;
+	private Commandant command;
+	private Student student;
 	Logger log = Logger.getLogger(Log4JLogRecord.class.getName());
 
 	public Controller(MainContainer mc) {
@@ -37,8 +40,7 @@ public class Controller {
 		public void actionPerformed(ActionEvent e) {
 			Object source = e.getSource();
 			if(source == login.getBtnSpravka()){
-				System.out.println("ListenerLogIn: pressed getInfo");
-				//login.getInfoTool().setVisible(true);
+				login.getLblInfoTool().setVisible(true);
 			}
 			if (source == login.getBtnLogIn()){
 				log.info("ListenerLogIn: pressed LogIn");
@@ -67,9 +69,35 @@ public class Controller {
 						}else{
 							wrongInput = true;							
 						}
-					}else if (login.getBoxUser().getSelectedItem().equals("Comendant")){
+					}else if (login.getBoxUser().getSelectedItem().equals("Commandant")){
 						System.out.println("comend");
 						if (model.Model.INSTANCE.checkUserLogInPswd((String)login.getBoxUser().getSelectedItem(),
+								login.getTextFieldLogin().getText(), login.getTextFieldPswd().getPassword())){
+							command = new Commandant();
+							command.addListener(new ListenerCommandant());
+							login.getTextFieldLogin().setText("");
+							login.getTextFieldPswd().setText("");
+							login.getAttentLbl().setText("");
+							frame.showPane(command);
+						}else{
+							wrongInput = true;							
+						}
+					} else if (login.getBoxUser().getSelectedItem().equals("Student")){
+						System.out.println("student");
+						if (model.Model.INSTANCE.checkUserLogInPswd((String)login.getBoxUser().getSelectedItem(),
+								login.getTextFieldLogin().getText(), login.getTextFieldPswd().getPassword())){
+							student = new Student();
+							student.addListener(new ListenerStudent());
+							login.getTextFieldLogin().setText("");
+							login.getTextFieldPswd().setText("");
+							login.getAttentLbl().setText("");
+							frame.showPane(student);
+						}else{
+							wrongInput = true;							
+						}
+					}else if (login.getBoxUser().getSelectedItem().equals("Worker")){
+						System.out.println("worker");
+						/*if (model.Model.INSTANCE.checkUserLogInPswd((String)login.getBoxUser().getSelectedItem(),
 								login.getTextFieldLogin().getText(), login.getTextFieldPswd().getPassword())){
 							commmand = new Commandant();
 							commmand.addListener(new ListenerCommandant());
@@ -79,13 +107,20 @@ public class Controller {
 							frame.showPane(commmand);
 						}else{
 							wrongInput = true;							
-						}
-					} else if (login.getBoxUser().getSelectedItem().equals("Student")){
-						System.out.println("student");
-					}else if (login.getBoxUser().getSelectedItem().equals("Worker")){
-						System.out.println("worker");
+						}*/
 					} else{
 						System.out.println("guest");
+						/*if (model.Model.INSTANCE.checkUserLogInPswd((String)login.getBoxUser().getSelectedItem(),
+								login.getTextFieldLogin().getText(), login.getTextFieldPswd().getPassword())){
+							commmand = new Commandant();
+							commmand.addListener(new ListenerCommandant());
+							login.getTextFieldLogin().setText("");
+							login.getTextFieldPswd().setText("");
+							login.getAttentLbl().setText("");
+							frame.showPane(commmand);
+						}else{
+							wrongInput = true;							
+						}*/
 					}
 					if (wrongInput){
 						JOptionPane.showMessageDialog(login,
@@ -104,7 +139,7 @@ public class Controller {
 	private class ListenerAdministrator implements ActionListener{
 
 		@Override
-		public void actionPerformed(ActionEvent arg0) {
+		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
 			
 		}
@@ -113,9 +148,25 @@ public class Controller {
 	private class ListenerCommandant implements ActionListener{
 
 		@Override
-		public void actionPerformed(ActionEvent arg0) {
+		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
+			Object source = e.getSource();
+			if (source == command.getBtnLogOut()){
+				frame.showPane(login);
+			}
 			
+		}
+		
+	}
+	private class ListenerStudent implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			Object source = e.getSource();
+			if (source == student.getBtnLogOut()){
+				frame.showPane(login);
+			}
 		}
 		
 	}

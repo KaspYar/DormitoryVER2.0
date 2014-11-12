@@ -51,11 +51,10 @@ public class Commandant extends MyPanelWithLogOut {
 		
 		JPanel panel_1 = new JPanel();
 		toolBar_1.add(panel_1);
-		
+	}
 
-		
-		
-	
+	public void addListener(ActionListener l){
+		this.getBtnLogOut().addActionListener(l);
 	}
 	
 }

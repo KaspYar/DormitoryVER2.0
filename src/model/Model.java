@@ -11,7 +11,31 @@ public enum Model {
 		log.info("Model Instance Has Been Creared Successfully");
 	}
 	public boolean checkUserLogInPswd(String user, String logIn, char [] pswd){
-		return true;
+		boolean auth = false;
+		switch (user){
+		case "Student":{
+			if (database.DAO.INSTANCE.checkStudentByIdentNumberAndPswd(logIn, pswd)) auth = true;
+			break;
+		}
+		case "Administrator":{
+			auth = true;
+			break;
+		}
+		case "Commandant":{
+			auth = true;
+			break;
+		}
+		case "Worker":{
+			auth = true;
+			break;
+		}
+		case "Guest":{
+			auth = true;
+			break;
+		}		
+		}
+			
+		return auth;
 	}
 
 }

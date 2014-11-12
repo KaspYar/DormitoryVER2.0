@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
+
 import java.awt.event.ActionEvent;
 
 public class MyPanel extends JPanel {
@@ -55,7 +56,7 @@ public class MyPanel extends JPanel {
 	}
 
 	public void addListener(ActionListener l) {
-		exitButton.addActionListener(l);
+		//exitButton.addActionListener(l);
 
 	}
 }

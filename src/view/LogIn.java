@@ -30,7 +30,7 @@ public class LogIn extends MyPanel {
 	String txtLblGreetings = "Sing up to work";
 	String txtBtnSpravka = "Tip";
 	String txtLblInfoTool = "If you are a student, guest or worker enter your surname and password 11111";
-	String [] lstBoxUser = {"Administrator","Comendant","Student","Worker", "Guest"};
+	String [] lstBoxUser = {"Administrator","Commandant","Student","Worker", "Guest"};
 	
 	
 	private JButton btnLogIn;
