@@ -74,9 +74,10 @@ public class Commandant extends MyPanelWithLogOut {
 		panelResettle.setLayout(null);
 		panelResettle.setBackground(new Color( 102,178,255));
 		
-		
-		
-		
-	
+
+	}
+
+	public void addListener(ActionListener l){
+		this.getBtnLogOut().addActionListener(l);
 	}
 }

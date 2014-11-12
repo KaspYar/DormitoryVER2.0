@@ -43,10 +43,14 @@ public class MyPanelWithLogOut extends MyPanel {
 		separator.setBounds(0, 60, 800, 2);
 		add(separator);
 		
-		btnLogOut = new JButton(txtBtnLogOut);
+		btnLogOut = new JButton(txtBtnLogOut);		
 		btnLogOut.setBounds(675, 15, 89, 30);
-		add(btnLogOut);
-	
-	
+		add(btnLogOut);	
+	}
+	public JButton getBtnLogOut() {
+		return btnLogOut;
+	}
+	public void addListener(ActionListener l){
+		btnLogOut.addActionListener(l);
 	}
 }

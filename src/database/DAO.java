@@ -51,10 +51,12 @@ public enum DAO {
 	public void firstStep(){
 		//String [] str = {"01","04","05","08","09","12","13","16","17","20","21","24","25","28","29","32"};
 		try{
-			pst = connection.prepareStatement("SELECT * FROM BLOCK");
-			rs = pst.executeQuery();
+			System.out.println("FirstStep");
+			pst = connection.prepareStatement("SELECT * FROM STUDENTPROFILE WHERE ID < 5");
+			//pst.setInt(1, 1);
+			rs = pst.executeQuery();			
 			while(rs.next()){
-				log.info("ID:  "+rs.getInt("ID") );
+				System.out.println("ID:  "+rs.getInt("ID") );
 			}
 				
 			/*pst = connection.prepareStatement("INSERT INTO BLOCK(IDDORM, NUMBERSOFROOMS) VALUES (2, ?)");
@@ -73,11 +75,30 @@ public enum DAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
-		
-		
-		
-		
-			
+	}
+	public boolean checkStudentByIdentNumberAndPswd(String idd, char [] pswd){
+		boolean help = false;
+		try{
+			pst = connection.prepareStatement("SELECT * FROM STUDENTPROFILE WHERE IDENTNUMBER=?");
+			pst.setString(1,idd);
+			ResultSet rs  = pst.executeQuery();
+			if (rs.next()){
+				help = true;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		char [] goodPswd = {'1','1','1','1','1'};
+		if (goodPswd.length != pswd.length) help = false;
+		else{
+			for (int i=0;i<goodPswd.length;i++) 
+				if (goodPswd[i] != pswd[i]) {
+				help = false;
+				break;
+			}
+		}
+		return help;
 	}
 	
 }
