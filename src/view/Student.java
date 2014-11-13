@@ -18,13 +18,16 @@ public class Student extends MyPanelWithLogOut{
 	private String txtLblOutput = "Output:";
 	
 	private JLabel lblSignedAs;
+	private JLabel lblYouCan;
+	private JLabel lblOutput;
+	
 	private JButton btnGetDormInfo;
 	private JButton btnGetRequestStatus;
 	private JButton btnPay;
-	private JLabel lblYouCan;
+	
 	private JTextPane textPanePrinter;
+	
 	private JScrollPane scrollPane;
-	private JLabel lblOutput;
 
 	public Student() {
 		
@@ -52,7 +55,7 @@ public class Student extends MyPanelWithLogOut{
 		add(lblYouCan);
 		
 		scrollPane = new JScrollPane();
-		scrollPane.setBounds(450, 120, 282, 324);
+		scrollPane.setBounds(400, 120, 350, 350);
 		add(scrollPane);
 		
 		textPanePrinter = new JTextPane();
@@ -61,10 +64,35 @@ public class Student extends MyPanelWithLogOut{
 		
 		lblOutput = new JLabel(txtLblOutput);
 		lblOutput.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblOutput.setBounds(450, 70, 92, 38);
+		lblOutput.setBounds(400, 70, 92, 38);
 		add(lblOutput);
 	}
+	
+	
+	public JButton getBtnGetDormInfo() {
+		return btnGetDormInfo;
+	}
+
+
+	public JButton getBtnGetRequestStatus() {
+		return btnGetRequestStatus;
+	}
+
+
+	public JButton getBtnPay() {
+		return btnPay;
+	}
+
+
+	public JTextPane getTextPanePrinter() {
+		return textPanePrinter;
+	}
+
+
 	public void addListener(ActionListener l){
 		this.getBtnLogOut().addActionListener(l);
+		this.btnGetDormInfo.addActionListener(l);
+		this.btnGetRequestStatus.addActionListener(l);
+		this.btnPay.addActionListener(l);
 	}
 }
