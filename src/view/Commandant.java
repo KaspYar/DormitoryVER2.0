@@ -76,11 +76,12 @@ public class Commandant extends MyPanelWithLogOut {
     private JComboBox comboBoxPanelInfo;
     private JLabel lblInformationAboutInhabitants;
     private JButton btnEvict;
+    private JComboBox comboBoxEvict;
 
 	
 	public Commandant() {
 		
-	    JLabel lblCommandant = new JLabel(txtLblCommandant);
+	    lblCommandant = new JLabel(txtLblCommandant);
 		lblCommandant.setForeground(Color.WHITE);
 		lblCommandant.setBackground(Color.WHITE);
 		lblCommandant.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -88,17 +89,17 @@ public class Commandant extends MyPanelWithLogOut {
 		add(lblCommandant);
 		
 
-		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+	    tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.setBounds(25, 80, 765, 361);
 		add(tabbedPane);
 		
-		JPanel panelSettle = new JPanel();
+	    panelSettle = new JPanel();
 		panelSettle.setBackground(Color.GREEN);
 		tabbedPane.addTab(txtpanelSettle, null, panelSettle, null);
 		panelSettle.setLayout(null);
 		panelSettle.setBackground(new Color( 102,178,255));
 		
-		JLabel lblSelect = new JLabel(txtlblSelect);
+		lblSelect = new JLabel(txtlblSelect);
 		lblSelect.setBounds(35, 51, 46, 14);
 		panelSettle.add(lblSelect);
 		
@@ -106,20 +107,20 @@ public class Commandant extends MyPanelWithLogOut {
 		tableSettle.setBounds(35, 110, 510, 175);
 		panelSettle.add(tableSettle);
 		
-		JComboBox comboBoxSettle = new JComboBox();
+		comboBoxSettle = new JComboBox();
 		comboBoxSettle.setBounds(80, 45, 200, 25);
 		panelSettle.add(comboBoxSettle);
 		
-		JButton btnSettle = new JButton(txtbtnSettle);
+		btnSettle = new JButton(txtbtnSettle);
 		btnSettle.setBounds(455, 47, 89, 23);
 		panelSettle.add(btnSettle);
 		
-		JPanel panelResettle = new JPanel();
+		panelResettle = new JPanel();
 		tabbedPane.addTab(txtpanelResettle, null, panelResettle, null);
 		panelResettle.setLayout(null);
 		panelResettle.setBackground(new Color( 102,178,255));
 		
-		JLabel lblSelectResettle = new JLabel(txtlblSelectResettle);
+		lblSelectResettle = new JLabel(txtlblSelectResettle);
 		lblSelectResettle.setBounds(19, 41, 40, 15);
 		panelResettle.add(lblSelectResettle);
 		
@@ -127,57 +128,57 @@ public class Commandant extends MyPanelWithLogOut {
 		tableResettle.setBounds(19, 147, 510, 175);
 		panelResettle.add(tableResettle);
 		
-		JButton btnResettle = new JButton(txtbtnResettle);
+		btnResettle = new JButton(txtbtnResettle);
 		btnResettle.setBounds(440, 97, 89, 23);
 		panelResettle.add(btnResettle);
 		
-		JLabel lblSelectTheRoom = new JLabel(txtlblSelectTheRoom);
+		lblSelectTheRoom = new JLabel(txtlblSelectTheRoom);
 		lblSelectTheRoom.setBounds(19, 96, 155, 25);
 		panelResettle.add(lblSelectTheRoom);
 		
-		JComboBox comboBoxSelect = new JComboBox();
+		comboBoxSelect = new JComboBox();
 		comboBoxSelect.setBounds(184, 36, 200, 25);
 		panelResettle.add(comboBoxSelect);
 		
-		JTextPane textPaneResettle = new JTextPane();
+		textPaneResettle = new JTextPane();
 		textPaneResettle.setBounds(184, 96, 200, 25);
 		panelResettle.add(textPaneResettle);
 		
 		
-		JPanel panelEvict = new JPanel();
+		panelEvict = new JPanel();
 		tabbedPane.addTab(txtpanelEvict, null, panelEvict, null);
 		panelEvict.setLayout(null);
 		panelEvict.setBackground(new Color( 102,178,255));
 		
 		
-		JLabel lblSelectToEvict = new JLabel(txtlblSelectToEvict);
+		lblSelectToEvict = new JLabel(txtlblSelectToEvict);
 		lblSelectToEvict.setBounds(19, 41, 40, 15);
 		panelEvict.add(lblSelectToEvict);
 		
-		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setBounds(80, 36, 200, 25);
-		panelEvict.add(comboBox_1);
+		comboBoxEvict = new JComboBox();
+		comboBoxEvict.setBounds(80, 36, 200, 25);
+		panelEvict.add(comboBoxEvict);
 		
 		tableEvict = new JTable();
 		tableEvict.setBounds(19, 104, 510, 218);
 		panelEvict.add(tableEvict);
 		
-		JButton btnEvict = new JButton(txtbtnSelectToEvict);
+		btnEvict = new JButton(txtbtnSelectToEvict);
 		btnEvict.setBounds(440, 37, 89, 23);
 		panelEvict.add(btnEvict);
 		
-		JButton btnEvictAllGraduates = new JButton(txtbtnEvictAllGraduates);
+		btnEvictAllGraduates = new JButton(txtbtnEvictAllGraduates);
 		btnEvictAllGraduates.setBounds(599, 299, 119, 23);
 		panelEvict.add(btnEvictAllGraduates);
 		
 		
 		
-		JPanel panelInformation = new JPanel();
+		panelInformation = new JPanel();
 		tabbedPane.addTab(txtpanelInformation, null, panelInformation, null);
 		panelInformation.setLayout(null);
 		panelInformation.setBackground(new Color( 102,178,255));
 		
-		JLabel lblQuantityOfFree = new JLabel(txtlblQuantityOfFree);
+		lblQuantityOfFree = new JLabel(txtlblQuantityOfFree);
 		lblQuantityOfFree.setBounds(10, 54, 125, 14);
 		panelInformation.add(lblQuantityOfFree);
 		
@@ -185,39 +186,39 @@ public class Commandant extends MyPanelWithLogOut {
 		tableInformation.setBounds(410, 28, 327, 276);
 		panelInformation.add(tableInformation);
 		
-		JLabel lblSelectRoomsNumber = new JLabel(txtlblSelectRoomsNumber);
+		lblSelectRoomsNumber = new JLabel(txtlblSelectRoomsNumber);
 		lblSelectRoomsNumber.setBounds(10, 96, 113, 14);
 		panelInformation.add(lblSelectRoomsNumber);
 		
-		JComboBox comboBox_2Info = new JComboBox();
+		comboBox_2Info = new JComboBox();
 		comboBox_2Info.setBounds(136, 91, 75, 25);
 		panelInformation.add(comboBox_2Info);
 		
-		JButton btnInhabitansOfRoom = new JButton(txtbtnInhabitansOfRoom);
+		btnInhabitansOfRoom = new JButton(txtbtnInhabitansOfRoom);
 		btnInhabitansOfRoom.setBounds(242, 91, 140, 25);
 		panelInformation.add(btnInhabitansOfRoom);
 		
-		JLabel lblSelectBlocksNumber = new JLabel(txtlblSelectBlocksNumber);
+		lblSelectBlocksNumber = new JLabel(txtlblSelectBlocksNumber);
 		lblSelectBlocksNumber.setBounds(10, 132, 113, 14);
 		panelInformation.add(lblSelectBlocksNumber);
 		
-		JComboBox comboBoxSelectPerson = new JComboBox();
+		comboBoxSelectPerson = new JComboBox();
 		comboBoxSelectPerson.setBounds(136, 127, 75, 25);
 		panelInformation.add(comboBoxSelectPerson);
 		
-		JButton btnShowMonitor = new JButton(txtbtnShowMonitor);
+		btnShowMonitor = new JButton(txtbtnShowMonitor);
 		btnShowMonitor.setBounds(242, 127, 140, 25);
 		panelInformation.add(btnShowMonitor);
 		
-		JLabel lblSelectPerson = new JLabel(txtlblSelectPerson);
+	lblSelectPerson = new JLabel(txtlblSelectPerson);
 		lblSelectPerson.setBounds(10, 238, 102, 14);
 		panelInformation.add(lblSelectPerson);
 		
-		JComboBox comboBoxPanelInfo= new JComboBox();
+		comboBoxPanelInfo= new JComboBox();
 		comboBoxPanelInfo.setBounds(136, 233, 200, 25);
 		panelInformation.add(comboBoxPanelInfo);
 		
-		JLabel lblInformationAboutInhabitants = new JLabel(txtlblInfoemationAboutInhabitants);
+		lblInformationAboutInhabitants = new JLabel(txtlblInfoemationAboutInhabitants);
 		lblInformationAboutInhabitants.setBounds(91, 189, 217, 14);
 		panelInformation.add(lblInformationAboutInhabitants);
 		
