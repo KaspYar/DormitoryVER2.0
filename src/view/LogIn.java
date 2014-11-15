@@ -22,6 +22,7 @@ import javax.swing.JList;
 import javax.swing.JScrollBar;
 import javax.swing.JComboBox;
 
+
 public class LogIn extends MyPanel {
 	
 	String txtBtnLogIn = "Log In";

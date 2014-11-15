@@ -67,4 +67,13 @@ public class Worker extends MyPanelWithLogOut{
 	public void addListener(ActionListener l){
 		this.getBtnLogOut().addActionListener(l);
 	}
+	public JButton getBtnGetDormInfo() {
+		return btnGetDormInfo;
+	}
+	public JButton getBtnGetRequestStatus() {
+		return btnGetRequestStatus;
+	}
+	public JButton getBtnPay() {
+		return btnPay;
+	}
 }
