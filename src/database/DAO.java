@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import java.util.logging.Logger;
 
 import model.Dormitory;
+import model.IUser;
+import model.ProfileStudent;
 
 import org.apache.log4j.lf5.Log4JLogRecord;
 
@@ -81,7 +83,7 @@ public enum DAO {
 		try{
 			pst = connection.prepareStatement("SELECT * FROM STUDENTPROFILE WHERE IDENTNUMBER=?");
 			pst.setString(1,idd);
-			ResultSet rs  = pst.executeQuery();
+			rs  = pst.executeQuery();
 			if (rs.next()){
 				help = true;
 			}
@@ -99,6 +101,44 @@ public enum DAO {
 			}
 		}
 		return help;
+	}
+	public model.IUser getStudentBySsn(String logIn) {
+		model.Student stud = null;
+		try{
+			pst = connection.prepareStatement("SELECT * "
+					+ "FROM STUDENT S INNER JOIN STUDENTPROFILE SP ON S.IDPROFILE = SP.IDSTUDENT "
+					+ "WHERE SP.IDENTNUMBER = ?");
+			pst.setString(1, logIn);
+			rs = pst.executeQuery();
+			if (rs.next()){
+						ProfileStudent prSt = new ProfileStudent(rs.getString("LASTNAME"), rs.getString("FIRSTNAME"), 
+						rs.getString("FATHERNAME"), rs.getString("IDENTNUMBER"));
+				stud = new model.Student(prSt, rs.getInt("IDROOM"));			
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return stud;
+		
+	}
+	public String getDormInfoToSettlerDAO(int idRoom){
+		String str = "";
+		try{
+			pst = connection.prepareStatement("SELECT D.PHONE, D.ADRESS, B.NUMBERSOFROOMS, R.ROOMNUMBER, R.CAPACITY "
+					+ "FROM DORMITORY D INNER JOIN (BLOCK B INNER JOIN ROOM R ON B.ID = R.IDBLOCK) ON D.ID = B.IDDORM "
+					+ "WHERE R.ID = ?");
+			pst.setInt(1, idRoom);
+			rs = pst.executeQuery();
+			if (rs.next()){
+				str = "Адреса гуртожитка: "+rs.getString("ADRESS")+" телефон: "+rs.getString("PHONE")+"\n"+
+						"Блок: "+rs.getString("NUMBERSOFROOMS")+"\n"+
+						"Кімната: "+rs.getString("ROOMNUMBER")+" місткість: "+rs.getString("CAPACITY");
+			}
+		} catch(SQLException e){
+			e.printStackTrace();
+		}
+		return str;
 	}
 	
 }

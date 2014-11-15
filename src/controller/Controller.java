@@ -18,10 +18,10 @@ import view.Student;
 public class Controller {
 
 	private MainContainer frame;
-	private LogIn login;
-	private Administrator admin;
-	private Commandant command;
-	private Student student;
+	private view.LogIn login;
+	private view.Administrator admin;
+	private view.Commandant command;
+	private view.Student student;
 	Logger log = Logger.getLogger(Log4JLogRecord.class.getName());
 
 	public Controller(MainContainer mc) {
@@ -155,6 +155,7 @@ public class Controller {
 				frame.showPane(login);
 			}
 			
+			
 		}
 		
 	}
@@ -167,6 +168,18 @@ public class Controller {
 			if (source == student.getBtnLogOut()){
 				frame.showPane(login);
 			}
+			if (source == student.getBtnGetDormInfo()){
+				log.info("StudentView: Button Dormitory Info");
+				String result = model.Model.INSTANCE.getDormInfoToSettler();
+				student.getTextPanePrinter().setText(result);
+			}
+			if (source == student.getBtnGetRequestStatus()){
+				System.out.println("StudentView: Button Request Status");
+			}
+			if (source == student.getBtnPay()){
+				System.out.println("StudentView: Button Pay");
+			}
+			
 		}
 		
 	}
