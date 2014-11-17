@@ -23,9 +23,9 @@ import javax.swing.JTable;
 import javax.swing.JComboBox;
 import javax.swing.SwingConstants;
 
-public class Administrator extends MyPanel{
+public class Administrator extends MyPanelWithLogOut{
 	
-	private String txtbtnChangeAUser = "Change user";
+	//private String txtbtnChangeAUser = "Change user";
 	private String txtbtnDeleteDormitory = "Delete dormitory";
 	private String txtbtnOkDorm = "OK";
 	private String txtbtnResetDorm = "Reset";
@@ -99,7 +99,7 @@ public class Administrator extends MyPanel{
 	private JLabel lblSurnameSett;
 	private JLabel lblPhoneSett;
 	
-	private JButton btnChangeAUser;
+	//private JButton btnChangeAUser;
 	private JButton btnDeleteDormitory;
 	private JButton btnOkDorm;
 	private JButton btnResetDorm;
@@ -141,10 +141,11 @@ public class Administrator extends MyPanel{
 
 	
 	public Administrator() {
-		
+		/*
 		btnChangeAUser = new JButton(txtbtnChangeAUser);
 		btnChangeAUser.setBounds(668, 20, 115, 23);
 		add(btnChangeAUser);
+		*/
 		
 		lblAdministrator = new JLabel(txtlblAdministrator);
 		lblAdministrator.setForeground(Color.WHITE);
@@ -390,7 +391,8 @@ public class Administrator extends MyPanel{
 	  
 	public void addListener(ActionListener l) {
 		
-		btnChangeAUser.addActionListener(l);
+		//btnChangeAUser.addActionListener(l);
+		this.getBtnLogOut().addActionListener(l);
 		btnDeleteDormitory.addActionListener(l);
 		btnOkDorm.addActionListener(l);
 		btnResetDorm.addActionListener(l);
