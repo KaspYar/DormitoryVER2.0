@@ -2,6 +2,7 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.util.logging.Logger;
 
 import javax.swing.JOptionPane;
@@ -35,7 +36,7 @@ public class Controller {
 /*
   Here starts all Listener<Types>
 */	
-	private class ListenerLogIn implements ActionListener{
+	private class ListenerLogIn implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			Object source = e.getSource();
@@ -47,6 +48,7 @@ public class Controller {
 				log.info("Value user: "+login.getBoxUser().getSelectedItem());
 				log.info("Value login: "+login.getTextFieldLogin().getText());
 				log.info("Value pswd: "+login.getTextFieldPswd().getText());
+				try{
 				if (login.getTextFieldLogin().getText().equals("") || 
 						login.getTextFieldPswd().getPassword().length == 0 ){
 					JOptionPane.showMessageDialog(login,
@@ -129,7 +131,13 @@ public class Controller {
 				                JOptionPane.ERROR_MESSAGE);
 					}
 				}
-			}
+				}catch(SQLException exc){
+					JOptionPane.showMessageDialog(login,
+			                "You entered wrong value(s) type!",
+			                "ERROR",
+			                JOptionPane.ERROR_MESSAGE);
+				}
+			}//logInBtn
 			if (source == login.getBoxUser()){
 				System.out.println("Box user value = "+login.getBoxUser().getSelectedItem());
 			}
