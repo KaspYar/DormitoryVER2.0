@@ -3,6 +3,8 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Logger;
 
 import javax.swing.JOptionPane;
@@ -23,6 +25,8 @@ public class Controller {
 	private view.Administrator admin;
 	private view.Commandant command;
 	private view.Student student;
+	
+	
 	Logger log = Logger.getLogger(Log4JLogRecord.class.getName());
 
 	public Controller(MainContainer mc) {

@@ -1,14 +1,21 @@
 package model;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Logger;
 
 import org.apache.log4j.lf5.Log4JLogRecord;
+
+import view.Student;
 
 public enum Model {
 	INSTANCE;
 	Logger log = Logger.getLogger(Log4JLogRecord.class.getName());
 	IUser user;
+	private ArrayList<Settler> userList;
+	public ArrayList<Settler> getUserList(){
+		return userList;
+	}
 	private Model(){
 		log.info("Model Instance Has Been Creared Successfully");
 	}
@@ -47,6 +54,7 @@ public enum Model {
 				if (this.user != null){
 					auth = true;				
 					log.info(( (model.Commandant) this.user).getProfile().getLastname());
+					//userList = database.DAO.INSTANCE.getAllSettlersToCommandant(((model.Commandant)this.user).getIdDormitory());
 				}
 				
 				break;

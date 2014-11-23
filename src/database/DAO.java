@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Logger;
 
 import javax.swing.JOptionPane;
@@ -13,6 +14,7 @@ import model.Dormitory;
 import model.IUser;
 import model.ProfileCommandant;
 import model.ProfileStudent;
+import model.Settler;
 
 import org.apache.log4j.lf5.Log4JLogRecord;
 
@@ -27,6 +29,11 @@ public enum DAO {
 	Connection connection;
 	PreparedStatement pst = null;
 	ResultSet rs = null;
+	
+	/*
+	data for prototype 
+	*/
+	//---------------------------------------
 	private DAO(){
 		System.out.println("Connection created!");
 		try {			 
@@ -200,6 +207,9 @@ public enum DAO {
 			e.printStackTrace();
 		}
 		return str;
+	}
+	public void deleteSettlerBySSN(String ssn){
+		
 	}
 	
 	
