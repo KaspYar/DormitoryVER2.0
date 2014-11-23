@@ -22,6 +22,7 @@ import javax.swing.JTextPane;
 import javax.swing.JTable;
 import javax.swing.JComboBox;
 import javax.swing.SwingConstants;
+
 public class AddCommandant extends MyPanelWithLogOut{
 	
 	private String txtlblAddCommandant = "Add commandant";

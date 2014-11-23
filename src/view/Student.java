@@ -95,13 +95,4 @@ public class Student extends MyPanelWithLogOut{
 		this.btnGetRequestStatus.addActionListener(l);
 		this.btnPay.addActionListener(l);
 	}
-	public JButton getBtnGetDormInfo() {
-		return btnGetDormInfo;
-	}
-	public JButton getBtnGetRequestStatus() {
-		return btnGetRequestStatus;
-	}
-	public JButton getBtnPay() {
-		return btnPay;
-	}
 }
