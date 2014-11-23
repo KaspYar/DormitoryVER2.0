@@ -5,11 +5,16 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Logger;
+
+import javax.swing.JOptionPane;
 
 import model.Dormitory;
 import model.IUser;
+import model.ProfileCommandant;
 import model.ProfileStudent;
+import model.Settler;
 
 import org.apache.log4j.lf5.Log4JLogRecord;
 
@@ -24,6 +29,11 @@ public enum DAO {
 	Connection connection;
 	PreparedStatement pst = null;
 	ResultSet rs = null;
+	
+	/*
+	data for prototype 
+	*/
+	//---------------------------------------
 	private DAO(){
 		System.out.println("Connection created!");
 		try {			 
@@ -50,34 +60,7 @@ public enum DAO {
 			e.printStackTrace();
 		}
 	}
-	public void firstStep(){
-		//String [] str = {"01","04","05","08","09","12","13","16","17","20","21","24","25","28","29","32"};
-		try{
-			System.out.println("FirstStep");
-			pst = connection.prepareStatement("SELECT * FROM STUDENTPROFILE WHERE ID < 5");
-			//pst.setInt(1, 1);
-			rs = pst.executeQuery();			
-			while(rs.next()){
-				System.out.println("ID:  "+rs.getInt("ID") );
-			}
-				
-			/*pst = connection.prepareStatement("INSERT INTO BLOCK(IDDORM, NUMBERSOFROOMS) VALUES (2, ?)");
-			for(int j=2;j<10;j++)
-				for (int i=0;i<str.length-1;i+=2){
-				//System.out.println(""+j+str[i]+"-"+j+str[i+1]);
-					pst.setString(1, ""+j+str[i]+"-"+j+str[i+1]);
-					int a = pst.executeUpdate();
-					pst.clearParameters();
-					System.out.println("Inserted: "+j+str[i]+"-"+j+str[i+1]);
-					int res = pst.executeUpdate();
-			}*/
-			
-						
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}	
-	}
+	/*
 	public boolean checkStudentByIdentNumberAndPswd(String idd, char [] pswd){
 		boolean help = false;
 		try{
@@ -102,6 +85,7 @@ public enum DAO {
 		}
 		return help;
 	}
+	
 	public model.IUser getStudentBySsn(String logIn) {
 		model.Student stud = null;
 		try{
@@ -122,6 +106,90 @@ public enum DAO {
 		return stud;
 		
 	}
+	*/
+	public IUser getStudentBySsn(String logIn, char [] pswd) throws SQLException{
+		model.Student stud = null;
+		char [] goodPswd = {'1','1','1','1','1'};
+		if (goodPswd.length != pswd.length) return null;
+		else{
+			for (int i=0;i<goodPswd.length;i++) 
+				if (goodPswd[i] != pswd[i]) {
+				return null;
+			}
+		}	
+			pst = connection.prepareStatement("SELECT * "
+					+ "FROM STUDENT S INNER JOIN STUDENTPROFILE SP ON S.IDPROFILE = SP.IDSTUDENT "
+					+ "WHERE SP.IDENTNUMBER = ?");
+			pst.setString(1, logIn);
+			rs = pst.executeQuery();
+			if (rs.next()){
+						ProfileStudent prSt = new ProfileStudent(rs.getString("LASTNAME"), rs.getString("FIRSTNAME"), 
+						rs.getString("FATHERNAME"), rs.getString("IDENTNUMBER"));
+				stud = new model.Student(prSt, rs.getInt("IDROOM"));
+			}			
+		return stud;
+	} 
+	public IUser getCommandantBySsn(String logIn, char [] pswd) throws SQLException{
+		model.Commandant cmd = null;
+			pst = connection.prepareStatement("SELECT * "
+					+ "FROM COMMANDANT C INNER JOIN COMMANDANTPROFILE CP ON C.IDPROFILE = CP.ID "
+					+ "WHERE C.PSWD = ? AND CP.SSN = ?");
+			pst.setString(1, new String(pswd));
+			pst.setString(2, logIn);
+			
+			rs  = pst.executeQuery();
+			if (rs.next()){
+				ProfileCommandant prComm = new ProfileCommandant(rs.getString("LASTNAME"), rs.getString("FIRSTNAME"), 
+						rs.getString("FATHERNAME"), rs.getString("SSN"));
+				cmd = new model.Commandant(prComm, rs.getInt("IDDORM"));
+			}		
+		return cmd;
+	}
+	/* 
+	 * old version
+	public boolean checkCommandantByIdentNumberAndPswd(String logIn, char[] pswd) {
+		
+		boolean help = false;
+		try{
+			pst = connection.prepareStatement("SELECT C.PSWD, CP.SSN "
+					+ "FROM COMMANDANT C INNER JOIN COMMANDANTPROFILE CP ON C.IDPROFILE = CP.ID "
+					+ "WHERE C.PSWD = ? AND CP.SSN = ?");
+			pst.setString(1, new String(pswd));
+			pst.setString(2, logIn);
+			
+			rs  = pst.executeQuery();
+			if (rs.next()){
+				help = true;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return help;
+	}
+	 
+	public IUser getCommandantBySsn(String logIn) {
+		model.Commandant cmd = null;
+		try{
+			pst = connection.prepareStatement("SELECT * "
+					+ "FROM COMMANDANT C INNER JOIN COMMANDANTPROFILE CP ON C.IDPROFILE = CP.ID "
+					+ "WHERE CP.SSN = ?");
+			pst.setString(1, logIn);
+			
+			rs  = pst.executeQuery();
+			if (rs.next()){
+				ProfileCommandant prComm = new ProfileCommandant(rs.getString("LASTNAME"), rs.getString("FIRSTNAME"), 
+						rs.getString("FATHERNAME"), rs.getString("SSN"));
+				cmd = new model.Commandant(prComm, rs.getInt("IDDORM"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return cmd;
+		
+	}
+	*/
 	public String getDormInfoToSettlerDAO(int idRoom){
 		String str = "";
 		try{
@@ -131,14 +199,18 @@ public enum DAO {
 			pst.setInt(1, idRoom);
 			rs = pst.executeQuery();
 			if (rs.next()){
-				str = "Адреса гуртожитка: "+rs.getString("ADRESS")+" телефон: "+rs.getString("PHONE")+"\n"+
-						"Блок: "+rs.getString("NUMBERSOFROOMS")+"\n"+
-						"Кімната: "+rs.getString("ROOMNUMBER")+" місткість: "+rs.getString("CAPACITY");
+				str = "Адреса гуртожитка: "+rs.getString("ADRESS")+"\nтелефон: "+rs.getString("PHONE")+
+						"\nБлок: "+rs.getString("NUMBERSOFROOMS")+
+						"\nКімната: "+rs.getString("ROOMNUMBER")+"\nМісткість: "+rs.getString("CAPACITY");
 			}
 		} catch(SQLException e){
 			e.printStackTrace();
 		}
 		return str;
 	}
+	public void deleteSettlerBySSN(String ssn){
+		
+	}
+	
 	
 }

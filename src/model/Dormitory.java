@@ -6,15 +6,15 @@ public class Dormitory {
 private String adress;
 private String phone;
 private LinkedList<Block> blocks;
-//private Comendant comendant;
+private int commandantId;
 private Integer freePlaces;
 private Integer freeRooms;
-public Dormitory(String adr, String phone/*, Comendant cmd*/){
+public Dormitory(String adr, String phone, int cmdId){
 	this.adress = adr;
 	this.phone = phone;
 	this.blocks = new LinkedList<Block>();
 	
-	//this.comendant = cmd;	
+	this.commandantId = cmdId;	
 }
 public String getAdress() {
 	return adress;
@@ -22,9 +22,9 @@ public String getAdress() {
 public String getPhone() {
 	return phone;
 }
-/*
- public void setComendant(Comendant cmd){
- this.comendant = cmd;
+
+ public void setComendant(int cmdId){
+ this.commandantId = cmdId;
  }
- */
+ 
 }
