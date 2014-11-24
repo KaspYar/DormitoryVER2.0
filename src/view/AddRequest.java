@@ -26,7 +26,7 @@ import javax.swing.SwingConstants;
 public class AddRequest extends MyPanelWithLogOut{
 	
 
-    private String txtlblChooseSettler = "Choose settler";
+    private String txtlblAddSettler = "Choose settler";
     private String txtlblNameStudent = "Name";
     private String txtlblSurnameStudent = "Surname";
     private String txtlblSsnStudent = "SSN";
@@ -37,7 +37,7 @@ public class AddRequest extends MyPanelWithLogOut{
     private String txtlblDateFromStudent = "Date from";
     private String txtlblDateToStudent = "Date to";
     private String txtlblCourse = "Course";
-    private String txtlblPriceStudent = "Prices";
+    private String txtlblPricesStudent = "Prices";
     private String txtlblPriceForMonthStudent = "Price for month";
     private String txtlblTotalPriceStudent = "Total price";
     private String txtlblNameWorker = "Name";
@@ -95,7 +95,7 @@ public class AddRequest extends MyPanelWithLogOut{
 	private JComboBox comboBoxDormitoryGuest;
 	private JComboBox comboBoxRoomGuest;
 	
-	private JLabel lblChooseSettler;
+	private JLabel lblAddSettler;
 	private JLabel lblNameStudent;
 	private JLabel lblSurnameStudent;
 	private JLabel lblSsnStudent;
@@ -168,28 +168,29 @@ public class AddRequest extends MyPanelWithLogOut{
 	private JTextField textFieldDateToWorker;
 	
 	private JTabbedPane tabbedPaneSettler;
+	private JSeparator separator_4;
 	
 
 	public AddRequest(){
 		
 	
-	panelWorkWithSettlers = new JPanel();
-	panelWorkWithSettlers.setLayout(null);
-	panelWorkWithSettlers.setBackground(new Color(102, 178, 255));
 	
-	lblChooseSettler = new JLabel("Choose settler");
-	lblChooseSettler.setBounds(362, 60, 70, 14);
-	panelWorkWithSettlers.add(lblChooseSettler);
+	
+	lblAddSettler = new JLabel(txtlblAddSettler);
+	lblAddSettler.setFont(new Font("Tahoma", Font.PLAIN, 26));
+	lblAddSettler.setForeground(Color.WHITE);
+	lblAddSettler.setBounds(358, 22, 184, 27);
+	add(lblAddSettler);
 	
 	tabbedPaneSettler = new JTabbedPane(JTabbedPane.TOP);
-	tabbedPaneSettler.setBounds(150, 85, 527, 270);
-	panelWorkWithSettlers.add(tabbedPaneSettler);
+	tabbedPaneSettler.setBounds(150, 123, 527, 270);
+	add(tabbedPaneSettler);
 	
 	panelStudent = new JPanel();
 	tabbedPaneSettler.addTab("Student", null, panelStudent, null);
 	panelStudent.setLayout(null);
 	
-	lblNameStudent = new JLabel("Name");
+	lblNameStudent = new JLabel(txtlblNameStudent);
 	lblNameStudent.setBounds(10, 11, 46, 14);
 	panelStudent.add(lblNameStudent);
 	
@@ -198,7 +199,7 @@ public class AddRequest extends MyPanelWithLogOut{
 	panelStudent.add(textFieldNameStudent);
 	textFieldNameStudent.setColumns(10);
 	
-	lblSurnameStudent = new JLabel("Surname");
+	lblSurnameStudent = new JLabel(txtlblSurnameStudent);
 	lblSurnameStudent.setBounds(10, 36, 46, 14);
 	panelStudent.add(lblSurnameStudent);
 	
@@ -207,7 +208,7 @@ public class AddRequest extends MyPanelWithLogOut{
 	panelStudent.add(textFieldSurnameStudent);
 	textFieldSurnameStudent.setColumns(10);
 	
-	lblSsnStudent = new JLabel("SSN");
+	lblSsnStudent = new JLabel(txtlblSsnStudent);
 	lblSsnStudent.setBounds(10, 61, 46, 14);
 	panelStudent.add(lblSsnStudent);
 	
@@ -216,11 +217,11 @@ public class AddRequest extends MyPanelWithLogOut{
 	panelStudent.add(textFieldSSNStudent);
 	textFieldSSNStudent.setColumns(10);
 	
-	lblFaculty = new JLabel("Faculty");
+	lblFaculty = new JLabel(txtlblFaculty);
 	lblFaculty.setBounds(296, 11, 46, 14);
 	panelStudent.add(lblFaculty);
 	
-	lblPhoneStudent = new JLabel("Phone");
+	lblPhoneStudent = new JLabel(txtlblPhoneStudent);
 	lblPhoneStudent.setBounds(296, 61, 46, 14);
 	panelStudent.add(lblPhoneStudent);
 	
@@ -233,7 +234,7 @@ public class AddRequest extends MyPanelWithLogOut{
 	separator_1.setBounds(0, 105, 525, 2);
 	panelStudent.add(separator_1);
 	
-	lblDormitoryStudent = new JLabel("Dormitory");
+	lblDormitoryStudent = new JLabel(txtlblDormitoryStudent);
 	lblDormitoryStudent.setBounds(10, 142, 56, 14);
 	panelStudent.add(lblDormitoryStudent);
 	
@@ -241,11 +242,11 @@ public class AddRequest extends MyPanelWithLogOut{
 	comboBoxDormitoryStudent.setBounds(80, 139, 86, 20);
 	panelStudent.add(comboBoxDormitoryStudent);
 	
-	lblRoomStudent = new JLabel("Room");
+	lblRoomStudent = new JLabel(txtlblRoomStudent);
 	lblRoomStudent.setBounds(10, 167, 46, 14);
 	panelStudent.add(lblRoomStudent);
 	
-	lblDateFromStudent = new JLabel("Date from");
+	lblDateFromStudent = new JLabel(txtlblDateFromStudent);
 	lblDateFromStudent.setBounds(192, 142, 56, 14);
 	panelStudent.add(lblDateFromStudent);
 	
@@ -254,7 +255,7 @@ public class AddRequest extends MyPanelWithLogOut{
 	panelStudent.add(textFieldDateFromStudent);
 	textFieldDateFromStudent.setColumns(10);
 	
-	lblDateToStudent = new JLabel("Date to");
+	lblDateToStudent = new JLabel(txtlblDateToStudent);
 	lblDateToStudent.setBounds(192, 167, 46, 14);
 	panelStudent.add(lblDateToStudent);
 	
@@ -263,15 +264,15 @@ public class AddRequest extends MyPanelWithLogOut{
 	panelStudent.add(textFieldDateToStudent);
 	textFieldDateToStudent.setColumns(10);
 	
-	lblCourse = new JLabel("Course");
+	lblCourse = new JLabel(txtlblCourse);
 	lblCourse.setBounds(296, 36, 46, 14);
 	panelStudent.add(lblCourse);
 	
-	lblPricesStudent = new JLabel("Prices");
+	lblPricesStudent = new JLabel(txtlblPricesStudent);
 	lblPricesStudent.setBounds(396, 118, 46, 14);
 	panelStudent.add(lblPricesStudent);
 	
-	lblPriceForMonthStudent = new JLabel("Price for month");
+	lblPriceForMonthStudent = new JLabel(txtlblPriceForMonthStudent);
 	lblPriceForMonthStudent.setBounds(352, 142, 73, 14);
 	panelStudent.add(lblPriceForMonthStudent);
 	
@@ -280,7 +281,7 @@ public class AddRequest extends MyPanelWithLogOut{
 	panelStudent.add(textFieldPriceForMonthStudent);
 	textFieldPriceForMonthStudent.setColumns(10);
 	
-	lblTotalPriceStudent = new JLabel("Total price");
+	lblTotalPriceStudent = new JLabel(txtlblTotalPriceStudent);
 	lblTotalPriceStudent.setBounds(352, 167, 73, 14);
 	panelStudent.add(lblTotalPriceStudent);
 	
@@ -301,7 +302,7 @@ public class AddRequest extends MyPanelWithLogOut{
 	comboBoxRoomStudent.setBounds(80, 164, 86, 20);
 	panelStudent.add(comboBoxRoomStudent);
 	
-	btnSaveStudent = new JButton("Save");
+	btnSaveStudent = new JButton(txtbtnSaveStudent);
 	btnSaveStudent.setBounds(216, 208, 89, 23);
 	panelStudent.add(btnSaveStudent);
 	
@@ -309,7 +310,7 @@ public class AddRequest extends MyPanelWithLogOut{
 	tabbedPaneSettler.addTab("Worker", null, panelWorker, null);
 	panelWorker.setLayout(null);
 	
-	lblNameWorker = new JLabel("Name");
+	lblNameWorker = new JLabel(txtlblNameWorker);
 	lblNameWorker.setBounds(10, 11, 46, 14);
 	panelWorker.add(lblNameWorker);
 	
@@ -323,7 +324,7 @@ public class AddRequest extends MyPanelWithLogOut{
 	panelWorker.add(textFieldSurnameWorker);
 	textFieldSurnameWorker.setColumns(10);
 	
-	lblSurnameWorker = new JLabel("Surname");
+	lblSurnameWorker = new JLabel(txtlblSurnameWorker);
 	lblSurnameWorker.setBounds(10, 36, 46, 14);
 	panelWorker.add(lblSurnameWorker);
 	
@@ -332,11 +333,11 @@ public class AddRequest extends MyPanelWithLogOut{
 	panelWorker.add(textFieldPhoneWorker);
 	textFieldPhoneWorker.setColumns(10);
 	
-	lblPhoneWorker = new JLabel("Phone");
+	lblPhoneWorker = new JLabel(txtlblPhoneWorker);
 	lblPhoneWorker.setBounds(10, 61, 46, 14);
 	panelWorker.add(lblPhoneWorker);
 	
-	lblSsnWorker = new JLabel("SSN");
+	lblSsnWorker = new JLabel(txtlblSsnWorker);
 	lblSsnWorker.setBounds(295, 11, 46, 14);
 	panelWorker.add(lblSsnWorker);
 	
@@ -345,7 +346,7 @@ public class AddRequest extends MyPanelWithLogOut{
 	panelWorker.add(textFieldSsnWorker);
 	textFieldSsnWorker.setColumns(10);
 	
-	lblMarriedWorker = new JLabel("Married");
+	lblMarriedWorker = new JLabel(txtlblMarriedWorker);
 	lblMarriedWorker.setBounds(295, 36, 46, 14);
 	panelWorker.add(lblMarriedWorker);
 	
@@ -354,7 +355,7 @@ public class AddRequest extends MyPanelWithLogOut{
 	chckbxNewCheckBox.setBounds(370, 33, 86, 23);
 	panelWorker.add(chckbxNewCheckBox);
 	
-	lblQuantityOfChildrenWorker = new JLabel("Quantity of children");
+	lblQuantityOfChildrenWorker = new JLabel(txtlblQuantityOfChildrenWorker);
 	lblQuantityOfChildrenWorker.setBounds(295, 58, 97, 14);
 	panelWorker.add(lblQuantityOfChildrenWorker);
 	
@@ -367,7 +368,7 @@ public class AddRequest extends MyPanelWithLogOut{
 	separator_2.setBounds(0, 105, 525, 2);
 	panelWorker.add(separator_2);
 	
-	lblDormitoryWorker = new JLabel("Dormitory");
+	lblDormitoryWorker = new JLabel(txtlblDormitoryWorker);
 	lblDormitoryWorker.setBounds(10, 142, 56, 14);
 	panelWorker.add(lblDormitoryWorker);
 	
@@ -375,11 +376,11 @@ public class AddRequest extends MyPanelWithLogOut{
 	comboBoxDormitoryWorker.setBounds(80, 139, 86, 20);
 	panelWorker.add(comboBoxDormitoryWorker);
 	
-	lblRoomWorker = new JLabel("Room");
+	lblRoomWorker = new JLabel(txtlblRoomWorker);
 	lblRoomWorker.setBounds(10, 167, 46, 14);
 	panelWorker.add(lblRoomWorker);
 	
-	lblPersonMonthWorker = new JLabel("Person/month");
+	lblPersonMonthWorker = new JLabel(txtlblPersonMonthWorker);
 	lblPersonMonthWorker.setHorizontalAlignment(SwingConstants.LEFT);
 	lblPersonMonthWorker.setBounds(352, 142, 75, 14);
 	panelWorker.add(lblPersonMonthWorker);
@@ -389,7 +390,7 @@ public class AddRequest extends MyPanelWithLogOut{
 	panelWorker.add(textFieldPersonMonthWorker);
 	textFieldPersonMonthWorker.setColumns(10);
 	
-	lblDateFromWorker = new JLabel("Date from");
+	lblDateFromWorker = new JLabel(txtlblDateFromWorker);
 	lblDateFromWorker.setBounds(192, 142, 56, 14);
 	panelWorker.add(lblDateFromWorker);
 	
@@ -398,7 +399,7 @@ public class AddRequest extends MyPanelWithLogOut{
 	panelWorker.add(textFieldDateFromWorker);
 	textFieldDateFromWorker.setColumns(10);
 	
-	lblDateToWorker = new JLabel("Date to");
+	lblDateToWorker = new JLabel(txtlblDateToWorker);
 	lblDateToWorker.setBounds(192, 167, 46, 14);
 	panelWorker.add(lblDateToWorker);
 	
@@ -407,11 +408,11 @@ public class AddRequest extends MyPanelWithLogOut{
 	panelWorker.add(textFieldDateToWorker);
 	textFieldDateToWorker.setColumns(10);
 	
-	lblPricesWorker = new JLabel("Prices");
+	lblPricesWorker = new JLabel(txtlblPricesWorker);
 	lblPricesWorker.setBounds(396, 118, 46, 14);
 	panelWorker.add(lblPricesWorker);
 	
-	lblTotalPriceWorker = new JLabel("Total price");
+	lblTotalPriceWorker = new JLabel(txtlblTotalPriceWorker);
 	lblTotalPriceWorker.setBounds(352, 167, 75, 14);
 	panelWorker.add(lblTotalPriceWorker);
 	
@@ -424,7 +425,7 @@ public class AddRequest extends MyPanelWithLogOut{
 	comboBoxRoomWorker.setBounds(80, 164, 86, 20);
 	panelWorker.add(comboBoxRoomWorker);
 	
-	btnSaveWorker = new JButton("Save");
+	btnSaveWorker = new JButton(txtbtnSaveWorker);
 	btnSaveWorker.setBounds(216, 208, 89, 23);
 	panelWorker.add(btnSaveWorker);
 	
@@ -432,7 +433,7 @@ public class AddRequest extends MyPanelWithLogOut{
 	tabbedPaneSettler.addTab("Guest", null, panelGuest, null);
 	panelGuest.setLayout(null);
 	
-	lblNameGuest = new JLabel("Name");
+	lblNameGuest = new JLabel(txtlblNameGuest);
 	lblNameGuest.setBounds(10, 11, 46, 14);
 	panelGuest.add(lblNameGuest);
 	
@@ -441,7 +442,7 @@ public class AddRequest extends MyPanelWithLogOut{
 	panelGuest.add(textFieldNameGuest);
 	textFieldNameGuest.setColumns(10);
 	
-	lblSurnameGuest = new JLabel("Surname");
+	lblSurnameGuest = new JLabel(txtlblSurnameGuest);
 	lblSurnameGuest.setBounds(10, 36, 46, 14);
 	panelGuest.add(lblSurnameGuest);
 	
@@ -455,7 +456,7 @@ public class AddRequest extends MyPanelWithLogOut{
 	panelGuest.add(textFieldSsnGuest);
 	textFieldSsnGuest.setColumns(10);
 	
-	lblSsnGuest = new JLabel("SSN");
+	lblSsnGuest = new JLabel(txtlblSsnGuest);
 	lblSsnGuest.setBounds(296, 11, 46, 14);
 	panelGuest.add(lblSsnGuest);
 	
@@ -463,7 +464,7 @@ public class AddRequest extends MyPanelWithLogOut{
 	separator_3.setBounds(0, 105, 525, 2);
 	panelGuest.add(separator_3);
 	
-	lblDormitoryGuest = new JLabel("Dormitory");
+	lblDormitoryGuest = new JLabel(txtlblDormitoryGuest);
 	lblDormitoryGuest.setBounds(10, 142, 56, 14);
 	panelGuest.add(lblDormitoryGuest);
 	
@@ -471,7 +472,7 @@ public class AddRequest extends MyPanelWithLogOut{
 	comboBoxDormitoryGuest.setBounds(80, 139, 86, 20);
 	panelGuest.add(comboBoxDormitoryGuest);
 	
-	lblRoomGuest = new JLabel("Room");
+	lblRoomGuest = new JLabel(txtlblRoomGuest);
 	lblRoomGuest.setBounds(10, 167, 46, 14);
 	panelGuest.add(lblRoomGuest);
 	
@@ -479,7 +480,7 @@ public class AddRequest extends MyPanelWithLogOut{
 	comboBoxRoomGuest.setBounds(80, 164, 86, 20);
 	panelGuest.add(comboBoxRoomGuest);
 	
-	lblDateFromGuest = new JLabel("Date from");
+	lblDateFromGuest = new JLabel(txtlblDateFromGuest);
 	lblDateFromGuest.setBounds(189, 142, 56, 14);
 	panelGuest.add(lblDateFromGuest);
 	
@@ -488,7 +489,7 @@ public class AddRequest extends MyPanelWithLogOut{
 	panelGuest.add(textFieldDateFromGuest);
 	textFieldDateFromGuest.setColumns(10);
 	
-	lblDateToGuest = new JLabel("Date to");
+	lblDateToGuest = new JLabel(txtlblDateToGuest);
 	lblDateToGuest.setBounds(189, 167, 46, 14);
 	panelGuest.add(lblDateToGuest);
 	
@@ -497,11 +498,11 @@ public class AddRequest extends MyPanelWithLogOut{
 	panelGuest.add(textFieldDateToGuest);
 	textFieldDateToGuest.setColumns(10);
 	
-	lblPricesGuest = new JLabel("Prices");
+	lblPricesGuest = new JLabel(txtlblPricesGuest);
 	lblPricesGuest.setBounds(396, 118, 46, 14);
 	panelGuest.add(lblPricesGuest);
 	
-	lblPriceForDayGuest = new JLabel("Price for day");
+	lblPriceForDayGuest = new JLabel(txtlblPriceForDayGuest);
 	lblPriceForDayGuest.setBounds(352, 142, 75, 14);
 	panelGuest.add(lblPriceForDayGuest);
 	
@@ -511,7 +512,7 @@ public class AddRequest extends MyPanelWithLogOut{
 	panelGuest.add(textFieldPriceForDayGuest);
 	textFieldPriceForDayGuest.setColumns(10);
 	
-	lblTotalPriceGuest = new JLabel("Total price");
+	lblTotalPriceGuest = new JLabel(txtlblTotalPriceGuest);
 	lblTotalPriceGuest.setBounds(353, 167, 66, 14);
 	panelGuest.add(lblTotalPriceGuest);
 	
@@ -520,7 +521,7 @@ public class AddRequest extends MyPanelWithLogOut{
 	panelGuest.add(textFieldTotalPriceGuest);
 	textFieldTotalPriceGuest.setColumns(10);
 	
-	lblPhoneGuest = new JLabel("Phone");
+	lblPhoneGuest = new JLabel(txtlblPhoneGuest);
 	lblPhoneGuest.setBounds(296, 36, 46, 14);
 	panelGuest.add(lblPhoneGuest);
 	
@@ -529,17 +530,21 @@ public class AddRequest extends MyPanelWithLogOut{
 	panelGuest.add(textFieldPhoneGuest);
 	textFieldPhoneGuest.setColumns(10);
 	
-	btnSaveGuest = new JButton("Save");
+	btnSaveGuest = new JButton(txtbtnSaveGuest);
 	btnSaveGuest.setBounds(216, 208, 89, 23);
 	panelGuest.add(btnSaveGuest);
 	
-	lblQuantityOfFree = new JLabel("Quantity of free places in dormitories:");
-	lblQuantityOfFree.setBounds(150, 43, 533, 14);
-	panelWorkWithSettlers.add(lblQuantityOfFree);
+	lblQuantityOfFree = new JLabel(txtlblQuantityOfFree);
+	lblQuantityOfFree.setBounds(150, 82, 533, 14);
+	add(lblQuantityOfFree);
 	
-	btnReset = new JButton("Reset");
-	btnReset.setBounds(588, 380, 89, 23);
-	panelWorkWithSettlers.add(btnReset);
+	btnReset = new JButton(txtbtnReset);
+	btnReset.setBounds(588, 424, 89, 23);
+	add(btnReset);
+	
+	separator_4 = new JSeparator();
+	separator_4.setBounds(0, 60, 800, 2);
+	add(separator_4);
 }
 public void addListener(ActionListener l) {
 

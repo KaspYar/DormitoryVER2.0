@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 
 import org.apache.log4j.lf5.Log4JLogRecord;
 
+import sun.tools.jar.CommandLine;
 import view.Administrator;
 import view.Commandant;
 import view.LogIn;
@@ -37,7 +38,8 @@ public class Controller {
 		
 		login = new LogIn();
 		frame.showPane(login);
-		login.addListener(new ListenerLogIn());		
+		login.addListener(new ListenerLogIn());	
+		
 	}
 /*
   Here starts all Listener<Types>
@@ -176,7 +178,18 @@ public class Controller {
 			if (source == command.getBtnLogOut()){
 				frame.showPane(login);
 			}
-			
+			if(source == command.getBtnEvict()){
+				System.out.println("Commandant View : evict button");
+			}
+			if (source == command.getBtnEvictAllGraduates()){
+				System.out.println("commandant view: evict all graduateras" );
+			}
+			if (source == command.getBtnInhabitansOfRoom()){
+				System.out.println("command view: inhabitans of room");
+			}
+			if (source == command.getBtnResettle()){
+				System.out.println("command view: resettle");
+			}
 			
 		}
 		
