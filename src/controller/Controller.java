@@ -31,7 +31,7 @@ public class Controller {
 	private view.Commandant command;
 	private view.Student student;
 	private view.AddRequest addRequest;
-	private view.AddDormitory adddormitory;
+	private view.AddDormitory addDormitory;
 
 	
 	private model.IUser user;
@@ -187,9 +187,9 @@ public class Controller {
 				frame.showPane(addRequest);
 			}
 			if (source == admin.getBtnAddNewDormitory()){
-				adddormitory = new AddDormitory();
-				adddormitory.addListener(new ListenerAddDormitory());
-				frame.showPane(adddormitory);
+				addDormitory = new AddDormitory();
+				addDormitory.addListener(new ListenerAddDormitory());
+				frame.showPane(addDormitory);
 				
 			}
 			
@@ -311,13 +311,18 @@ public class Controller {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			Object source = e.getSource();
+			if (source == addDormitory.getBtnGoBack()){
+				frame.showPane(admin);
+			}
 			
-			if (source == adddormitory.getBtnSave()){
-				System.out.println("AddDormitory View: added new dormitory");
+			if (source == addDormitory.getBtnSave()){
+				System.out.println("AddDormitory View: Added dormitory");
+				model.Dormitory dr = new model.Dormitory();
+				model.Model.INSTANCE.addDormitoryToDb(dr);
 				
 			}
-			if(source == adddormitory.getBtnReset()){
-				System.out.println("AddDormitory View: resetted all fields");
+			if(source == addDormitory.getBtnReset()){
+				System.out.println("reset btn");
 			}
 			
 	}

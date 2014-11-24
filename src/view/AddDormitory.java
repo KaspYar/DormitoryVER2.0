@@ -22,12 +22,13 @@ import javax.swing.JTable;
 import javax.swing.JComboBox;
 import javax.swing.SwingConstants;
 
-public class AddDormitory extends MyPanelWithLogOut{
+public class AddDormitory extends MyPanel{
 	
 	private String txtlblAddDormitory = "Add dormitory";
 	private String txtlblIdDormitoryAddDorm = "ID Dormitory";
 	private String txtlblAddressAddDorm = "Address";
 	private String txtlblCommandantAddDorm = "Comandant";
+	private String txtbtnGoBack = "Go back";
 	private String txtbtnSave = "Save";
 	private String txtbtnReset = "Reset";
 	
@@ -49,6 +50,7 @@ public class AddDormitory extends MyPanelWithLogOut{
 	private JButton btnReset;
 	
 	private JSeparator separator;
+	private JButton btnGoBack;
 	
 	public AddDormitory() {
 		
@@ -100,11 +102,15 @@ public class AddDormitory extends MyPanelWithLogOut{
 		separator = new JSeparator();
 		separator.setBounds(0, 60, 800, 2);
 		add(separator);
+		
+		btnGoBack = new JButton("Go back");
+		btnGoBack.setBounds(679, 20, 89, 23);
+		add(btnGoBack);
 	}
 	public void addListener(ActionListener l) {
-		
-		btnSave.addActionListener(null);
-		btnReset.addActionListener(null);
+		btnGoBack.addActionListener(l);
+		btnSave.addActionListener(l);
+		btnReset.addActionListener(l);
 	}
 	public JButton getBtnSave() {
 		return btnSave;
@@ -112,7 +118,7 @@ public class AddDormitory extends MyPanelWithLogOut{
 	public JButton getBtnReset() {
 		return btnReset;
 	}
-	
-	
-
+	public JButton getBtnGoBack() {
+		return btnGoBack;
+	}
 }

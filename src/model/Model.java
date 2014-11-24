@@ -106,5 +106,8 @@ public enum Model {
 		System.out.println("Request added to database");
 		
 	}
+	public void addDormitoryToDb(Dormitory dr){
+		System.out.println("Dormitory added to database");
+	}
 
 }

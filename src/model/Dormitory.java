@@ -9,6 +9,10 @@ private LinkedList<Block> blocks;
 private int commandantId;
 private Integer freePlaces;
 private Integer freeRooms;
+
+public Dormitory(){
+	System.out.println("Dormitory is created");
+}
 public Dormitory(String adr, String phone, int cmdId){
 	this.adress = adr;
 	this.phone = phone;
