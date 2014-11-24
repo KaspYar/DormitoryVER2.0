@@ -25,11 +25,14 @@ public class Controller {
 	private view.Commandant command;
 	private view.Student student;
 	private view.AddRequest addRequest;
+	private view.AddDormitory adddormitory;
+
 	
 	private model.IUser user;
 	private model.Request rqst;
+
 	private ISettlerFactory fact;
-	private view.AddDormitory adddormitory;
+
 	
 	
 	Logger log = Logger.getLogger(Log4JLogRecord.class.getName());
@@ -177,6 +180,12 @@ public class Controller {
 				addRequest.addListener(new ListenerAddRequest());
 				frame.showPane(addRequest);
 			}
+			if (source == admin.getBtnAddNewDormitory()){
+				adddormitory = new AddDormitory();
+				adddormitory.addListener(new ListenerAddDormitory());
+				frame.showPane(adddormitory);
+				
+			}
 			
 		}
 		
@@ -290,22 +299,23 @@ public class Controller {
 
 			}
 		}
-		private class ListenerAddDormitory implements ActionListener{
-			
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					Object source = e.getSource();
-					if (source == adddormitory.getBtnSave()){
-						System.out.println("AddDormitory View: added new dormitory");
-					}
-					if(source == adddormitory.getBtnReset()){
-						System.out.println("AddDormitory View: resetted all fields");
-					}
-					
-			}
-		}
-		
 	}
+	private class ListenerAddDormitory implements ActionListener{
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			Object source = e.getSource();
+			
+			if (source == adddormitory.getBtnSave()){
+				System.out.println("AddDormitory View: added new dormitory");
+				
+			}
+			if(source == adddormitory.getBtnReset()){
+				System.out.println("AddDormitory View: resetted all fields");
+			}
+			
+	}
+}
 	private class ListenerAddRequest implements ActionListener{
 
 		@Override
