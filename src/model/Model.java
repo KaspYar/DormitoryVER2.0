@@ -62,12 +62,12 @@ public enum Model {
 			}
 			case "Worker":{
 				auth = true;
-				//this.user = new model.Worker();
+				this.user = new model.Worker();
 				break;
 			}
 			case "Guest":{
 				auth = true;
-				//this.user = new model.Guest();
+				this.user = new model.Guest();
 				break;
 			}		
 			}	
