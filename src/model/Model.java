@@ -11,7 +11,8 @@ import view.Student;
 public enum Model {
 	INSTANCE;
 	Logger log = Logger.getLogger(Log4JLogRecord.class.getName());
-	IUser user;
+	IUser user; 
+	Commandant commandant;
 	private ArrayList<Settler> userList;
 	public ArrayList<Settler> getUserList(){
 		return userList;
