@@ -19,7 +19,7 @@ public int getMyRoom() {
 
 @Override
 public String getMyDormitory() {
-	String res = "Guest room number";
+	String res = "Guest Dormitory";
 	return res;
 }
 
