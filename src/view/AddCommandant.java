@@ -23,7 +23,7 @@ import javax.swing.JTable;
 import javax.swing.JComboBox;
 import javax.swing.SwingConstants;
 
-public class AddCommandant extends MyPanelWithLogOut{
+public class AddCommandant extends MyPanel{
 	
 	private String txtlblAddCommandant = "Add commandant";
 	private String txtlblNameAddComm = "Name";
@@ -33,6 +33,7 @@ public class AddCommandant extends MyPanelWithLogOut{
 		
 	private String txtbtnSaveAddComm = "Save";
 	private String txtbtnResetAddComm = "Reset";
+	private String txtBtnBack = "Go back";
 	
 	private JTextField textFieldNameAddComm;
 	private JTextField textFieldSurnameAddComm;
@@ -50,6 +51,7 @@ public class AddCommandant extends MyPanelWithLogOut{
 	
 	private JSeparator separator;
 	private JPanel panel;
+	private JButton btnBack;
 	
 	public AddCommandant() {
 		
@@ -112,10 +114,25 @@ public class AddCommandant extends MyPanelWithLogOut{
 		btnResetAddComm = new JButton(txtbtnResetAddComm);
 		btnResetAddComm.setBounds(300, 222, 89, 23);
 		panel.add(btnResetAddComm);
+		
+		btnBack = new JButton(txtBtnBack);
+		btnBack.setBounds(701, 25, 89, 23);
+		add(btnBack);
 	}
       public void addListener(ActionListener l) {
 		
-		btnSaveAddComm.addActionListener(null);
-		btnResetAddComm.addActionListener(null);
+		btnSaveAddComm.addActionListener(l);
+		btnResetAddComm.addActionListener(l);
+		btnBack.addActionListener(l);
 	}
+	public JButton getBtnSaveAddComm() {
+		return btnSaveAddComm;
+	}
+	public JButton getBtnResetAddComm() {
+		return btnResetAddComm;
+	}
+	public JButton getBtnBack() {
+		return btnBack;
+	}
+      
 }

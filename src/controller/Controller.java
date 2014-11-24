@@ -26,6 +26,7 @@ public class Controller {
 	private view.Student student;
 	private view.AddRequest addRequest;
 	private view.AddDormitory adddormitory;
+	private view.AddCommandant addCommandant;
 
 	
 	private model.IUser user;
@@ -181,12 +182,34 @@ public class Controller {
 				frame.showPane(addRequest);
 			}
 			if (source == admin.getBtnAddNewDormitory()){
-				adddormitory = new AddDormitory();
+				adddormitory = new view.AddDormitory();
 				adddormitory.addListener(new ListenerAddDormitory());
 				frame.showPane(adddormitory);
-				
 			}
-			
+			if (source == admin.getBtnAddCommandant()){
+				addCommandant = new view.AddCommandant();
+				addCommandant.addListener(new ListenerAddCommandant());
+				frame.showPane(addCommandant);
+			}
+		}
+	}
+	private class ListenerAddCommandant implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			Object source = e.getSource();
+			if (source == addCommandant.getBtnBack()){
+				frame.showPane(admin);
+			}
+			if (source == addCommandant.getBtnResetAddComm()){
+				System.out.println("btn reset");
+			}
+			if (source == addCommandant.getBtnSaveAddComm()){
+				System.out.println("btn add commandant");
+				model.Commandant cmd = new model.Commandant();
+				model.ProfileCommandant pCmd  = new model.ProfileCommandant();
+				model.Model.INSTANCE.addNewCommandant(cmd, pCmd);
+			}
 		}
 		
 	}
