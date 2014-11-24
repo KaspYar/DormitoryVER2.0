@@ -305,24 +305,23 @@ public class Controller {
 
 			}
 		}
-		private class ListenerAddDormitory implements ActionListener{
-			
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					Object source = e.getSource();
-					
-					if (source == adddormitory.getBtnSave()){
-						System.out.println("AddDormitory View: added new dormitory");
-						
-					}
-					if(source == adddormitory.getBtnReset()){
-						System.out.println("AddDormitory View: resetted all fields");
-					}
-					
-			}
-		}
-		
 	}
+	private class ListenerAddDormitory implements ActionListener{
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			Object source = e.getSource();
+			
+			if (source == adddormitory.getBtnSave()){
+				System.out.println("AddDormitory View: added new dormitory");
+				
+			}
+			if(source == adddormitory.getBtnReset()){
+				System.out.println("AddDormitory View: resetted all fields");
+			}
+			
+	}
+}
 	private class ListenerAddRequest implements ActionListener{
 
 		@Override
