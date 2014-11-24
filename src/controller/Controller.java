@@ -3,25 +3,19 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Logger;
 
 import javax.swing.JOptionPane;
 
 import org.apache.log4j.lf5.Log4JLogRecord;
 
-import fabricMethod.GuestFactory;
 import fabricMethod.ISettlerFactory;
-import sun.tools.jar.CommandLine;
 import view.AddRequest;
 import view.Administrator;
 import view.Commandant;
 import view.LogIn;
 import view.MainContainer;
-import view.MyPanelWithLogOut;
 import view.Student;
-import view.AddDormitory;
 
 public class Controller {
 
@@ -31,13 +25,13 @@ public class Controller {
 	private view.Commandant command;
 	private view.Student student;
 	private view.AddRequest addRequest;
-	private view.AddDormitory addDormitory;
+	private view.AddCommandant addCommandant;
+	private view.AddDormitory addDormitory; 
 
-	
 	private model.IUser user;
 	private model.Request rqst;
-
 	private ISettlerFactory fact;
+	
 
 	
 	
@@ -187,12 +181,34 @@ public class Controller {
 				frame.showPane(addRequest);
 			}
 			if (source == admin.getBtnAddNewDormitory()){
-				addDormitory = new AddDormitory();
+				addDormitory = new view.AddDormitory();
 				addDormitory.addListener(new ListenerAddDormitory());
 				frame.showPane(addDormitory);
-				
 			}
-			
+			if (source == admin.getBtnAddCommandant()){
+				addCommandant = new view.AddCommandant();
+				addCommandant.addListener(new ListenerAddCommandant());
+				frame.showPane(addCommandant);
+			}
+		}
+	}
+	private class ListenerAddCommandant implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			Object source = e.getSource();
+			if (source == addCommandant.getBtnBack()){
+				frame.showPane(admin);
+			}
+			if (source == addCommandant.getBtnResetAddComm()){
+				System.out.println("btn reset");
+			}
+			if (source == addCommandant.getBtnSaveAddComm()){
+				System.out.println("btn add commandant");
+				model.Commandant cmd = new model.Commandant();
+				model.ProfileCommandant pCmd  = new model.ProfileCommandant();
+				model.Model.INSTANCE.addNewCommandant(cmd, pCmd);
+			}
 		}
 		
 	}

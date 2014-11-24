@@ -109,5 +109,12 @@ public enum Model {
 	public void addDormitoryToDb(Dormitory dr){
 		System.out.println("Dormitory added to database");
 	}
+	public void addNewCommandant(model.Commandant cmd, ProfileCommandant pCmd) {
+		System.out.println("New commandant and his profile added to db");
+		
+	}
+	public void addNewLiving(Living living) {
+		System.out.println("new Living added to database");		
+	}
 
 }
