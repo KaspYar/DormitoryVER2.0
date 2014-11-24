@@ -51,13 +51,8 @@ public enum Model {
 					log.info(( (model.Commandant) this.user).getProfile().getLastname());
 				}
 				*/
-				this.user = database.DAO.INSTANCE.getCommandantBySsn(logIn, pswd);
-				if (this.user != null){
-					auth = true;				
-					log.info(( (model.Commandant) this.user).getProfile().getLastname());
-					//userList = database.DAO.INSTANCE.getAllSettlersToCommandant(((model.Commandant)this.user).getIdDormitory());
-				}
-				
+				auth = true;
+				this.user = new model.Commandant();
 				break;
 			}
 			case "Worker":{

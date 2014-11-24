@@ -106,4 +106,13 @@ public class AddDormitory extends MyPanelWithLogOut{
 		btnSave.addActionListener(null);
 		btnReset.addActionListener(null);
 	}
+	public JButton getBtnSave() {
+		return btnSave;
+	}
+	public JButton getBtnReset() {
+		return btnReset;
+	}
+	
+	
+
 }

@@ -18,6 +18,7 @@ import view.LogIn;
 import view.MainContainer;
 import view.MyPanelWithLogOut;
 import view.Student;
+import view.AddDormitory;
 
 public class Controller {
 
@@ -26,6 +27,8 @@ public class Controller {
 	private view.Administrator admin;
 	private view.Commandant command;
 	private view.Student student;
+	private model.IUser user;
+	private view.AddDormitory adddormitory;
 	
 	
 	Logger log = Logger.getLogger(Log4JLogRecord.class.getName());
@@ -86,8 +89,7 @@ public class Controller {
 							login.getTextFieldLogin().setText("");
 							login.getTextFieldPswd().setText("");
 							login.getAttentLbl().setText("");
-							
-					//		user = new model.Commandant(p, idD);
+					     	//user = new model.Commandant();
 							frame.showPane(command);
 						}else{
 							wrongInput = true;							
@@ -173,8 +175,11 @@ public class Controller {
 			if (source == command.getBtnLogOut()){
 				frame.showPane(login);
 			}
+			if(source == command.getBtnSettle()){
+				System.out.println("Commandant View : settle");
+			}
 			if(source == command.getBtnEvict()){
-				System.out.println("Commandant View : evict button");
+				System.out.println("Commandant View : evict ");
 			}
 			if (source == command.getBtnEvictAllGraduates()){
 				System.out.println("commandant view: evict all graduateras" );
@@ -184,6 +189,9 @@ public class Controller {
 			}
 			if (source == command.getBtnResettle()){
 				System.out.println("command view: resettle");
+			}
+			if (source == command.getBtnShowMonitor()){
+				System.out.println("command view: information about monitor  ");
 			}
 			
 		}
@@ -210,6 +218,20 @@ public class Controller {
 				System.out.println("StudentView: Button Pay");
 			}
 			
+		}
+		private class ListenerAddDormitory implements ActionListener{
+			
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					Object source = e.getSource();
+					if (source == adddormitory.getBtnSave()){
+						System.out.println("AddDormitory View: added new dormitory");
+					}
+					if(source == adddormitory.getBtnReset()){
+						System.out.println("AddDormitory View: resetted all fields");
+					}
+					
+			}
 		}
 		
 	}
