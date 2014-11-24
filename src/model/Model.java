@@ -76,5 +76,36 @@ public enum Model {
 	public String getDormInfoToSettler(){
 		return database.DAO.INSTANCE.getDormInfoToSettlerDAO(((Settler)user).getMyRoom());
 	}
+	public Request getRequestToWorker() {
+		System.out.println("get request from db to worker");
+		Request rqst = new Request();
+		return rqst;
+	}
+	public Request getRequestToStudent() {
+		System.out.println("get request from db to student");
+		Request rqst = new Request();
+		return rqst;
+	}
+	public Request getRequestToGuest() {
+		System.out.println("get request from db to guest");
+		Request rqst = new Request();
+		return rqst;
+	}
+	public void addSettlerToDb(Settler gst, Profile pfGst) {
+		if (gst instanceof model.Student){
+			System.out.println("Student and his profile added to db");
+		}
+		if (gst instanceof model.Guest){
+			System.out.println("Guest and his profile added to db");
+		}
+		if (gst instanceof model.Worker){
+			System.out.println("Worker and his profile added to db");
+		}
+		
+	}
+	public void addRequestToDb(Request rq) {
+		System.out.println("Request added to database");
+		
+	}
 
 }

@@ -2,7 +2,7 @@ package model;
 
 public class Guest extends Settler{
 public Guest(){
-	System.out.println("Guest");
+	System.out.println("Guest created");
 }
 
 @Override

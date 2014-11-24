@@ -11,7 +11,10 @@ import javax.swing.JOptionPane;
 
 import org.apache.log4j.lf5.Log4JLogRecord;
 
+import fabricMethod.GuestFactory;
+import fabricMethod.ISettlerFactory;
 import sun.tools.jar.CommandLine;
+import view.AddRequest;
 import view.Administrator;
 import view.Commandant;
 import view.LogIn;
@@ -26,10 +29,11 @@ public class Controller {
 	private view.Administrator admin;
 	private view.Commandant command;
 	private view.Student student;
+	private view.AddRequest addRequest;
 	
 	private model.IUser user;
-	
-	
+	private model.Request rqst;
+	private ISettlerFactory fact;
 	Logger log = Logger.getLogger(Log4JLogRecord.class.getName());
 
 	public Controller(MainContainer mc) {
@@ -75,6 +79,7 @@ public class Controller {
 							login.getTextFieldLogin().setText("");
 							login.getTextFieldPswd().setText("");
 							login.getAttentLbl().setText("");
+							user = new model.Administrator();
 							frame.showPane(admin);
 						}else{
 							wrongInput = true;							
@@ -88,6 +93,7 @@ public class Controller {
 							login.getTextFieldLogin().setText("");
 							login.getTextFieldPswd().setText("");
 							login.getAttentLbl().setText("");
+							user = new model.Commandant();
 							frame.showPane(command);
 						}else{
 							wrongInput = true;							
@@ -165,6 +171,11 @@ public class Controller {
 			if (source == admin.getBtnLogOut()){
 				frame.showPane(login);
 			}
+			if (source == admin.getBtnAddNewSettler()){
+				addRequest = new AddRequest();
+				addRequest.addListener(new ListenerAddRequest());
+				frame.showPane(addRequest);
+			}
 			
 		}
 		
@@ -207,11 +218,13 @@ public class Controller {
 				log.info("StudentView: Button Dormitory Info");
 				((model.Student)user).getMyDormitory();
 				((model.Student)user).getMyRoom();
-				//String result = model.Model.INSTANCE.getDormInfoToSettler();
-				//student.getTextPanePrinter().setText(result);
+				String result = model.Model.INSTANCE.getDormInfoToSettler();
+				student.getTextPanePrinter().setText(result);
 			}
 			if (source == student.getBtnGetRequestStatus()){
 				System.out.println("Student: Button Request Status");
+				rqst = model.Model.INSTANCE.getRequestToStudent();
+				rqst.getStatus();
 			}
 			if (source == student.getBtnPay()){
 				((model.Student)user).pay();
@@ -237,6 +250,8 @@ public class Controller {
 			}
 			if (source == student.getBtnGetRequestStatus()){
 				System.out.println("Worker: Button Request Status");
+				rqst = model.Model.INSTANCE.getRequestToWorker();
+				student.getTextPanePrinter().setText(rqst.getStatus());
 			}
 			if (source == student.getBtnPay()){
 				((model.Worker)user).pay();
@@ -261,11 +276,56 @@ public class Controller {
 			}
 			if (source == student.getBtnGetRequestStatus()){
 				System.out.println("Guest: Button Request Status");
+				rqst = model.Model.INSTANCE.getRequestToGuest();
+				student.getTextPanePrinter().setText(rqst.getStatus());
 			}
 			if (source == student.getBtnPay()){
 				((model.Guest)user).pay();
 
 			}
+			
+		}
+		
+	}
+	private class ListenerAddRequest implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			Object source = e.getSource();
+			if (source == addRequest.getBtnBack()){
+				frame.showPane(admin);
+			}
+			if (source == addRequest.getBtnReset()){
+				System.out.println("reset btn");
+			}
+			if (source == addRequest.getBtnSaveGuest()){
+				System.out.println("Save Guest");
+				fact = new fabricMethod.GuestFactory();
+				model.Guest gst = (model.Guest)fact.getSettler();
+				model.ProfileGuest pfGst = (model.ProfileGuest)fact.getProfile();
+				model.Request rq = new model.Request();
+				model.Model.INSTANCE.addSettlerToDb(gst, pfGst);
+				model.Model.INSTANCE.addRequestToDb(rq);
+			}
+			if (source == addRequest.getBtnSaveStudent()){
+				System.out.println("save student");
+				fact = new fabricMethod.StudentFactory();
+				model.Student gst = (model.Student)fact.getSettler();
+				model.ProfileStudent pfGst = (model.ProfileStudent)fact.getProfile();				
+				model.Request rq = new model.Request();
+				model.Model.INSTANCE.addSettlerToDb(gst, pfGst);
+				model.Model.INSTANCE.addRequestToDb(rq);
+			}
+			if (source == addRequest.getBtnSaveWorker()){
+				System.out.println("save worker");
+				fact = new fabricMethod.WorkerFactory();
+				model.Worker gst = (model.Worker)fact.getSettler();
+				model.ProfileWorker pfGst = (model.ProfileWorker)fact.getProfile();				
+				model.Request rq = new model.Request();
+				model.Model.INSTANCE.addSettlerToDb(gst, pfGst);
+				model.Model.INSTANCE.addRequestToDb(rq);
+			}
+			
 			
 		}
 		

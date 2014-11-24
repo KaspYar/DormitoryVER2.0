@@ -23,7 +23,7 @@ import javax.swing.JTable;
 import javax.swing.JComboBox;
 import javax.swing.SwingConstants;
 
-public class AddRequest extends MyPanelWithLogOut{
+public class AddRequest extends MyPanel{
 	
 
     private String txtlblAddSettler = "Choose settler";
@@ -72,6 +72,7 @@ public class AddRequest extends MyPanelWithLogOut{
     private String txtpanelStudent = "Student";
     private String txtpanelWorker = "Worker";
     private String txtpanelGuest = "Guest";
+    private String txtBtnBack = "Go back";
     
     private JSeparator separator;
 	private JSeparator separator_1;
@@ -169,6 +170,7 @@ public class AddRequest extends MyPanelWithLogOut{
 	
 	private JTabbedPane tabbedPaneSettler;
 	private JSeparator separator_4;
+	private JButton btnBack;
 	
 
 	public AddRequest(){
@@ -545,6 +547,10 @@ public class AddRequest extends MyPanelWithLogOut{
 	separator_4 = new JSeparator();
 	separator_4.setBounds(0, 60, 800, 2);
 	add(separator_4);
+	
+	btnBack = new JButton(txtBtnBack);
+	btnBack.setBounds(701, 22, 89, 23);
+	add(btnBack);
 }
 public void addListener(ActionListener l) {
 
@@ -552,7 +558,21 @@ public void addListener(ActionListener l) {
 	    btnSaveGuest.addActionListener(l);
 	    btnSaveWorker.addActionListener(l);
 		btnReset.addActionListener(l);
-					
-
+		btnBack.addActionListener(l);
 	}
+public JButton getBtnReset() {
+	return btnReset;
+}
+public JButton getBtnSaveStudent() {
+	return btnSaveStudent;
+}
+public JButton getBtnSaveGuest() {
+	return btnSaveGuest;
+}
+public JButton getBtnSaveWorker() {
+	return btnSaveWorker;
+}
+public JButton getBtnBack(){
+	return btnBack;
+}
 }

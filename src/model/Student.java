@@ -11,8 +11,7 @@ public class Student extends Settler{
 
 	@Override
 	public void pay() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("Student Pay");
 	}
 
 	@Override

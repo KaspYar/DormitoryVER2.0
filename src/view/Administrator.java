@@ -405,8 +405,54 @@ public class Administrator extends MyPanelWithLogOut{
 		btnDeleteSettlerSett.addActionListener(l);
 		btnOkSett.addActionListener(l);
 		btnResetSett.addActionListener(l);
-		
-				
-
 	}
+
+	public JButton getBtnDeleteDormitory() {
+		return btnDeleteDormitory;
+	}
+
+	public JButton getBtnOkDorm() {
+		return btnOkDorm;
+	}
+
+	public JButton getBtnResetDorm() {
+		return btnResetDorm;
+	}
+
+	public JButton getBtnAddNewDormitory() {
+		return btnAddNewDormitory;
+	}
+
+	public JButton getBtnDeleteCommandant() {
+		return btnDeleteCommandant;
+	}
+
+	public JButton getBtnOkComm() {
+		return btnOkComm;
+	}
+
+	public JButton getBtnResetComm() {
+		return btnResetComm;
+	}
+
+	public JButton getBtnAddCommandant() {
+		return btnAddCommandant;
+	}
+
+	public JButton getBtnAddNewSettler() {
+		return btnAddNewSettler;
+	}
+
+	public JButton getBtnDeleteSettlerSett() {
+		return btnDeleteSettlerSett;
+	}
+
+	public JButton getBtnOkSett() {
+		return btnOkSett;
+	}
+
+	public JButton getBtnResetSett() {
+		return btnResetSett;
+	}
+	
 }

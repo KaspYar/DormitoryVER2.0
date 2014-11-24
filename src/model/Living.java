@@ -9,7 +9,9 @@ public class Living {
 	private Integer room;
 	private Settler settler;
 	
-	
+	public Living(){
+		System.out.println("Living created!");
+	}
 	public Date getDateTo() {
 		return dateTo;
 	}
