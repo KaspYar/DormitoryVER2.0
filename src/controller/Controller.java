@@ -3,25 +3,19 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Logger;
 
 import javax.swing.JOptionPane;
 
 import org.apache.log4j.lf5.Log4JLogRecord;
 
-import fabricMethod.GuestFactory;
 import fabricMethod.ISettlerFactory;
-import sun.tools.jar.CommandLine;
 import view.AddRequest;
 import view.Administrator;
 import view.Commandant;
 import view.LogIn;
 import view.MainContainer;
-import view.MyPanelWithLogOut;
 import view.Student;
-import view.AddDormitory;
 
 public class Controller {
 
