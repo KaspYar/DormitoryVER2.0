@@ -27,8 +27,6 @@ public class Controller {
 	private view.Commandant command;
 	private view.Student student;
 	
-	private model.IUser user;
-	
 	
 	Logger log = Logger.getLogger(Log4JLogRecord.class.getName());
 
@@ -88,11 +86,14 @@ public class Controller {
 							login.getTextFieldLogin().setText("");
 							login.getTextFieldPswd().setText("");
 							login.getAttentLbl().setText("");
+							
+					//		user = new model.Commandant(p, idD);
 							frame.showPane(command);
 						}else{
 							wrongInput = true;							
 						}
 					} else if (login.getBoxUser().getSelectedItem().equals("Student")){
+						System.out.println("student");
 						if (model.Model.INSTANCE.checkUserLogInPswd((String)login.getBoxUser().getSelectedItem(),
 								login.getTextFieldLogin().getText(), login.getTextFieldPswd().getPassword())){
 							student = new Student();
@@ -100,42 +101,36 @@ public class Controller {
 							login.getTextFieldLogin().setText("");
 							login.getTextFieldPswd().setText("");
 							login.getAttentLbl().setText("");
-							student.setTxtLblSignedAs("Student");
-							user = new model.Student();
-							
 							frame.showPane(student);
 						}else{
 							wrongInput = true;							
 						}
 					}else if (login.getBoxUser().getSelectedItem().equals("Worker")){
-						if (model.Model.INSTANCE.checkUserLogInPswd((String)login.getBoxUser().getSelectedItem(),
+						System.out.println("worker");
+						/*if (model.Model.INSTANCE.checkUserLogInPswd((String)login.getBoxUser().getSelectedItem(),
 								login.getTextFieldLogin().getText(), login.getTextFieldPswd().getPassword())){
-							student = new Student();
-							student.addListener(new ListenerWorker());
+							commmand = new Commandant();
+							commmand.addListener(new ListenerCommandant());
 							login.getTextFieldLogin().setText("");
 							login.getTextFieldPswd().setText("");
 							login.getAttentLbl().setText("");
-							student.setTxtLblSignedAs("Worker");
-							
-							user = new model.Worker();
-							frame.showPane(student);
+							frame.showPane(commmand);
 						}else{
 							wrongInput = true;							
-						}
+						}*/
 					} else{
-						if (model.Model.INSTANCE.checkUserLogInPswd((String)login.getBoxUser().getSelectedItem(),
+						System.out.println("guest");
+						/*if (model.Model.INSTANCE.checkUserLogInPswd((String)login.getBoxUser().getSelectedItem(),
 								login.getTextFieldLogin().getText(), login.getTextFieldPswd().getPassword())){
-							student = new Student();
-							student.addListener(new ListenerGuest());
+							commmand = new Commandant();
+							commmand.addListener(new ListenerCommandant());
 							login.getTextFieldLogin().setText("");
 							login.getTextFieldPswd().setText("");
 							login.getAttentLbl().setText("");
-							student.setTxtLblSignedAs("Guest");
-							user = new model.Guest();
-							frame.showPane(student);
+							frame.showPane(commmand);
 						}else{
 							wrongInput = true;							
-						}
+						}*/
 					}
 					if (wrongInput){
 						JOptionPane.showMessageDialog(login,
@@ -205,66 +200,14 @@ public class Controller {
 			}
 			if (source == student.getBtnGetDormInfo()){
 				log.info("StudentView: Button Dormitory Info");
-				((model.Student)user).getMyDormitory();
-				((model.Student)user).getMyRoom();
-				//String result = model.Model.INSTANCE.getDormInfoToSettler();
-				//student.getTextPanePrinter().setText(result);
-			}
-			if (source == student.getBtnGetRequestStatus()){
-				System.out.println("Student: Button Request Status");
-			}
-			if (source == student.getBtnPay()){
-				((model.Student)user).pay();
-			}
-			
-		}
-		
-	}
-	private class ListenerWorker implements ActionListener{
-
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
-			Object source = e.getSource();
-			if (source == student.getBtnLogOut()){
-				frame.showPane(login);
-			}
-			if (source == student.getBtnGetDormInfo()){
-				((model.Worker)user).getMyDormitory();
-				((model.Worker)user).getMyRoom();
-				String result = "Тут повинна бути інформація про гуртожиток для працівника";
+				String result = model.Model.INSTANCE.getDormInfoToSettler();
 				student.getTextPanePrinter().setText(result);
 			}
 			if (source == student.getBtnGetRequestStatus()){
-				System.out.println("Worker: Button Request Status");
+				System.out.println("StudentView: Button Request Status");
 			}
 			if (source == student.getBtnPay()){
-				((model.Worker)user).pay();
-
-			}
-			
-		}
-		
-	}
-	private class ListenerGuest implements ActionListener{
-
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
-			Object source = e.getSource();
-			if (source == student.getBtnLogOut()){
-				frame.showPane(login);
-			}
-			if (source == student.getBtnGetDormInfo()){
-				((model.Guest)user).getMyDormitory();
-				((model.Guest)user).getMyRoom();
-			}
-			if (source == student.getBtnGetRequestStatus()){
-				System.out.println("Guest: Button Request Status");
-			}
-			if (source == student.getBtnPay()){
-				((model.Guest)user).pay();
-
+				System.out.println("StudentView: Button Pay");
 			}
 			
 		}
