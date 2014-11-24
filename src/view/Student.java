@@ -86,6 +86,10 @@ public class Student extends MyPanelWithLogOut{
 
 	public JTextPane getTextPanePrinter() {
 		return textPanePrinter;
+	}	
+
+	public void setTxtLblSignedAs(String str) {
+		this.lblSignedAs.setText(str);
 	}
 
 

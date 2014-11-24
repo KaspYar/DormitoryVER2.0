@@ -1,6 +1,9 @@
 package model;
 
 public class Student extends Settler{
+	public Student(){
+		System.out.println("student created!");
+	}
 	public Student(ProfileStudent pf, int idRoom){
 		this.profile = pf;
 		this.idRoom = idRoom;
