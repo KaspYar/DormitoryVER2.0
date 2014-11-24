@@ -83,7 +83,8 @@ public class Controller {
 							login.getTextFieldLogin().setText("");
 							login.getTextFieldPswd().setText("");
 							login.getAttentLbl().setText("");
-							user = new model.Administrator();
+							//user = new model.Administrator();
+							user = model.Model.INSTANCE.getIUser();
 							frame.showPane(admin);
 						}else{
 							wrongInput = true;							
@@ -97,7 +98,8 @@ public class Controller {
 							login.getTextFieldLogin().setText("");
 							login.getTextFieldPswd().setText("");
 							login.getAttentLbl().setText("");
-							user = new model.Commandant();
+							//user = new model.Commandant();
+							user = model.Model.INSTANCE.getIUser();
 							frame.showPane(command);
 						}else{
 							wrongInput = true;							
@@ -111,36 +113,42 @@ public class Controller {
 							login.getTextFieldLogin().setText("");
 							login.getTextFieldPswd().setText("");
 							login.getAttentLbl().setText("");
+							student.setTxtLblSignedAs("Student");
+							user = model.Model.INSTANCE.getIUser();
 							frame.showPane(student);
 						}else{
 							wrongInput = true;							
 						}
 					}else if (login.getBoxUser().getSelectedItem().equals("Worker")){
 						System.out.println("worker");
-						/*if (model.Model.INSTANCE.checkUserLogInPswd((String)login.getBoxUser().getSelectedItem(),
+						if (model.Model.INSTANCE.checkUserLogInPswd((String)login.getBoxUser().getSelectedItem(),
 								login.getTextFieldLogin().getText(), login.getTextFieldPswd().getPassword())){
-							commmand = new Commandant();
-							commmand.addListener(new ListenerCommandant());
+							student = new view.Student();
+							student.addListener(new ListenerWorker());
 							login.getTextFieldLogin().setText("");
 							login.getTextFieldPswd().setText("");
 							login.getAttentLbl().setText("");
-							frame.showPane(commmand);
+							student.setTxtLblSignedAs("Worker");
+							user = model.Model.INSTANCE.getIUser();
+							frame.showPane(student);
 						}else{
 							wrongInput = true;							
-						}*/
+						}
 					} else{
 						System.out.println("guest");
-						/*if (model.Model.INSTANCE.checkUserLogInPswd((String)login.getBoxUser().getSelectedItem(),
+						if (model.Model.INSTANCE.checkUserLogInPswd((String)login.getBoxUser().getSelectedItem(),
 								login.getTextFieldLogin().getText(), login.getTextFieldPswd().getPassword())){
-							commmand = new Commandant();
-							commmand.addListener(new ListenerCommandant());
+							student = new Student();
+							student.addListener(new ListenerGuest());
 							login.getTextFieldLogin().setText("");
 							login.getTextFieldPswd().setText("");
 							login.getAttentLbl().setText("");
-							frame.showPane(commmand);
+							student.setTxtLblSignedAs("Guest");
+							user = model.Model.INSTANCE.getIUser();
+							frame.showPane(student);
 						}else{
 							wrongInput = true;							
-						}*/
+						}
 					}
 					if (wrongInput){
 						JOptionPane.showMessageDialog(login,
@@ -228,8 +236,8 @@ public class Controller {
 			}
 			if (source == student.getBtnGetRequestStatus()){
 				System.out.println("Student: Button Request Status");
-				rqst = model.Model.INSTANCE.getRequestToStudent();
-				rqst.getStatus();
+				rqst = model.Model.INSTANCE.getRequestToStudent();				
+				student.getTextPanePrinter().setText("Request status: "+rqst.getStatus());
 			}
 			if (source == student.getBtnPay()){
 				((model.Student)user).pay();
@@ -248,10 +256,8 @@ public class Controller {
 				frame.showPane(login);
 			}
 			if (source == student.getBtnGetDormInfo()){
-				((model.Worker)user).getMyDormitory();
-				((model.Worker)user).getMyRoom();
-				String result = "Тут повинна бути інформація про гуртожиток для працівника";
-				student.getTextPanePrinter().setText(result);
+				student.getTextPanePrinter().setText(((model.Worker)user).getMyDormitory());
+				((model.Worker)user).getMyRoom();				
 			}
 			if (source == student.getBtnGetRequestStatus()){
 				System.out.println("Worker: Button Request Status");
@@ -259,9 +265,6 @@ public class Controller {
 				student.getTextPanePrinter().setText(rqst.getStatus());
 				String result = model.Model.INSTANCE.getDormInfoToSettler();
 				student.getTextPanePrinter().setText(result);
-			}
-			if (source == student.getBtnGetRequestStatus()){
-				System.out.println("StudentView: Button Request Status");
 			}
 			if (source == student.getBtnPay()){
 				System.out.println("StudentView: Button Pay");
@@ -280,8 +283,8 @@ public class Controller {
 				frame.showPane(login);
 			}
 			if (source == student.getBtnGetDormInfo()){
-				((model.Guest)user).getMyDormitory();
-				((model.Guest)user).getMyRoom();
+				student.getTextPanePrinter().setText(((model.Guest)user).getMyDormitory());
+				((model.Guest)user).getMyRoom();				
 			}
 			if (source == student.getBtnGetRequestStatus()){
 				System.out.println("Guest: Button Request Status");

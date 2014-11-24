@@ -17,6 +17,9 @@ public enum Model {
 	public ArrayList<Settler> getUserList(){
 		return userList;
 	}
+	public IUser getIUser(){
+		return user;
+	}
 	private Model(){
 		log.info("Model Instance Has Been Creared Successfully");
 	}
